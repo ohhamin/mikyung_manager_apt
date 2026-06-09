@@ -1,86 +1,103 @@
 import SectionTitle from "@/components/ui/SectionTitle";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
-const FACILITIES = [
-  { name: "피트니스센터", size: "약 450㎡", floor: "지하 1층" },
-  { name: "실내수영장", size: "약 620㎡", floor: "지하 2층" },
-  { name: "스파&사우나", size: "약 280㎡", floor: "지하 2층" },
-  { name: "골프연습장", size: "약 180㎡", floor: "지하 1층" },
-  { name: "독서실·스터디룸", size: "약 160㎡", floor: "지하 1층" },
-  { name: "어린이집", size: "약 380㎡", floor: "동 1층" },
-  { name: "카페테리아", size: "약 220㎡", floor: "동 1층" },
-  { name: "게스트하우스", size: "2룸·4실", floor: "동 1층" },
+const PARK_FACILITIES = [
+  { name: "숲속체험 교육관", desc: "유아 체험숲" },
+  { name: "반려견 산책로", desc: "반려동물 테마정원" },
+  { name: "사계체험관", desc: "사상정원" },
+  { name: "영국정원", desc: "휴식 테마 정원" },
+  { name: "모험놀이장", desc: "어린이 특화 공간" },
+  { name: "오픈 그린", desc: "천계의 정원" },
+];
+
+const COMMUNITY_FACILITIES = [
+  { name: "피트니스센터", size: "약 450㎡", floor: "지하 1층", icon: "🏋️" },
+  { name: "실내수영장", size: "약 620㎡", floor: "지하 2층", icon: "🏊" },
+  { name: "스파&사우나", size: "약 280㎡", floor: "지하 2층", icon: "♨️" },
+  { name: "골프연습장", size: "약 180㎡", floor: "지하 1층", icon: "⛳" },
+  { name: "독서실·스터디룸", size: "약 160㎡", floor: "지하 1층", icon: "📚" },
+  { name: "어린이집", size: "약 380㎡", floor: "동 1층", icon: "👶" },
+  { name: "카페테리아", size: "약 220㎡", floor: "동 1층", icon: "☕" },
+  { name: "게스트하우스", size: "2룸 4실", floor: "동 1층", icon: "🏠" },
 ];
 
 export default function Community() {
   return (
-    <section className="bg-[#0c1b33] py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
+    <section className="bg-[#0d1f15] py-20 md:py-28 overflow-hidden relative">
+      <span className="section-number" aria-hidden>06</span>
+
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle
-          subtitle="Community Facility"
+          subtitle="Community & Park"
           title="커뮤니티 시설"
-          description="주민의 건강과 여가를 책임지는 프리미엄 커뮤니티 시설을 제공합니다."
+          description="사상공원과 하나되는 프리미엄 주거 환경. 자연 속 커뮤니티로 더 건강하고 행복한 일상을 누리세요."
           light
         />
 
-        {/* 메인 이미지 플레이스홀더 */}
-        <div className="mb-8">
-          <div className="w-full aspect-[21/7] bg-gray-700/50 border border-white/10 flex flex-col items-center justify-center gap-3 text-white/20">
-            <LargeImageIcon />
-            <span className="text-sm tracking-[0.4em]">커뮤니티 시설 전경 이미지</span>
-          </div>
-        </div>
-
-        {/* 시설 그리드 */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-          {FACILITIES.map((f, i) => (
-            <div
-              key={i}
-              className="relative aspect-[4/3] bg-gray-700/40 border border-white/8 hover:border-[#c4943a]/40 transition-all duration-300 group overflow-hidden"
-            >
-              {/* 플레이스홀더 */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/20 group-hover:text-white/30 transition-colors">
-                <SmallImageIcon />
-              </div>
-              {/* 시설 정보 오버레이 */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 md:p-4">
-                <p className="text-white text-xs md:text-sm font-semibold leading-tight">{f.name}</p>
-                <p className="text-[#c4943a] text-[10px] mt-0.5 tracking-wide">{f.floor} · {f.size}</p>
-              </div>
+        {/* 공원 특례 섹션 */}
+        <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
+          <div className="bg-white/5 border border-white/10 p-7 md:p-10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[#c9963c] text-[11px] tracking-[0.4em] font-bold uppercase">Park Facilities</span>
+              <div className="flex-1 h-px bg-white/10" />
             </div>
+            <p className="text-white text-lg md:text-xl font-black mb-2 tracking-tight">
+              사상공원 — 단지가 곧 공원
+            </p>
+            <p className="text-white/50 text-sm mb-8 leading-relaxed">
+              사상공원 민간공원조성 특례사업으로 단지 주변에 조성되는 대규모 공원 시설
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {PARK_FACILITIES.map((f, i) => (
+                <AnimatedSection key={f.name} animation="zoom-in" delay={i * 60} threshold={0.05}>
+                  <div className="bg-white/5 border border-white/10 hover:border-[#c9963c]/40 p-4 text-center transition-all hover:bg-white/10 cursor-default">
+                    <p className="text-white text-xs font-bold leading-tight mb-1">{f.name}</p>
+                    <p className="text-[#c9963c] text-[10px] leading-tight">{f.desc}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* 커뮤니티 시설 그리드 */}
+        <AnimatedSection animation="fade-up" delay={50}>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-[#c9963c] text-[11px] tracking-[0.4em] font-bold uppercase">Community</span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
+          {COMMUNITY_FACILITIES.map((f, i) => (
+            <AnimatedSection key={f.name} animation="fade-up" delay={i * 60} threshold={0.05}>
+              <div className="group bg-white/5 border border-white/8 hover:border-[#c9963c]/40 hover:bg-white/8 transition-all p-5 md:p-6">
+                <div className="text-2xl mb-3">{f.icon}</div>
+                <p className="text-white text-xs md:text-sm font-black leading-tight mb-1">{f.name}</p>
+                <p className="text-[#c9963c] text-[10px] font-medium">{f.floor}</p>
+                <p className="text-white/35 text-[10px] mt-0.5">{f.size}</p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* 통계 바 */}
-        <div className="mt-10 md:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 border-t border-white/10 pt-10">
-          {[
-            { value: "8종", label: "커뮤니티 시설" },
-            { value: "2,290㎡", label: "총 시설 면적" },
-            { value: "24시간", label: "관리 서비스" },
-            { value: "무료", label: "입주민 이용" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-white font-bold text-2xl md:text-3xl">{s.value}</p>
-              <p className="text-white/40 text-xs mt-1.5 tracking-wide">{s.label}</p>
-            </div>
-          ))}
-        </div>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 border-t border-white/10 pt-10">
+            {[
+              { value: "8종+", label: "커뮤니티 시설" },
+              { value: "6개", label: "공원 특화 공간" },
+              { value: "24시간", label: "관리 서비스" },
+              { value: "무료", label: "입주민 이용" },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-white font-black text-3xl md:text-4xl">{s.value}</p>
+                <p className="text-white/35 text-xs mt-1.5 tracking-wide">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
-  );
-}
-
-function LargeImageIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
-  );
-}
-
-function SmallImageIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
   );
 }

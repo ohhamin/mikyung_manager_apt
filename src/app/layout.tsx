@@ -4,16 +4,16 @@ import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "900"],
   variable: "--font-noto-sans-kr",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "미경 파크 비스타 | 경기도 하남시 미사강변 프리미엄 아파트 공식 분양",
+  title: "더파크 비스타 동원 | 부산 사상구 사상공원 공동주택 공식 분양",
   description:
-    "경기도 하남시 미사강변에 위치한 프리미엄 아파트 미경 파크 비스타 공식 분양 홈페이지. 한강 조망, 총 1,234세대, 59~84㎡ 분양.",
-  keywords: "미경 파크 비스타, 하남 미사 아파트, 분양, 청약, 미사강변, 한강뷰",
+    "부산광역시 사상구 감전동에 위치한 더파크 비스타 동원 공식 분양 홈페이지. 사상공원 민간공원조성 특례사업, 지하5층~지상25층 10개동 852세대. 부산 2호선 감전역 도보권.",
+  keywords: "더파크비스타동원, 부산아파트, 사상구아파트, 감전동, 사상공원, 분양, 청약, 동원개발",
 };
 
 export default function RootLayout({

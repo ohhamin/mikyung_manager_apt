@@ -1,58 +1,74 @@
 import SectionTitle from "@/components/ui/SectionTitle";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const SPECS = [
-  { label: "단지명", value: "미경 파크 비스타" },
-  { label: "위치", value: "경기도 하남시 미사강변동 234-5번지 일원" },
-  { label: "규모", value: "지하 3층 ~ 지상 35층, 10개동" },
-  { label: "총 세대수", value: "1,234세대" },
-  { label: "전용면적", value: "59㎡, 84㎡ (A·B타입)" },
-  { label: "주차대수", value: "총 2,100대 (세대당 1.7대)" },
-  { label: "건폐율", value: "18.5% (법정 30% 이하)" },
-  { label: "용적률", value: "269.4% (법정 300% 이하)" },
-  { label: "난방방식", value: "개별난방 (지역난방)" },
-  { label: "입주예정", value: "2028년 10월 (예정)" },
-  { label: "시행사", value: "미경개발 주식회사" },
-  { label: "시공사", value: "미경건설 주식회사" },
+  { label: "단지명",     value: "더파크 비스타 동원" },
+  { label: "위치",      value: "부산광역시 사상구 감전동 산 1-9 일원" },
+  { label: "사업유형",   value: "사상공원 민간공원조성 특례사업" },
+  { label: "규모",      value: "지하 5층 ~ 지상 25층, 10개동" },
+  { label: "총 세대수",  value: "총 852세대" },
+  { label: "전용면적",   value: "전용 84㎡ (A·B·C·T 타입)" },
+  { label: "대지면적",   value: "47,839㎡ (14,471평)" },
+  { label: "건축연면적", value: "139,160㎡ (42,096평)" },
+  { label: "건폐율",    value: "16.70% (법정 260% 이하)" },
+  { label: "용적률",    value: "199.96% (법정 200% 이하)" },
+  { label: "주차대수",  value: "총 1,038대 (1.21대/세대)" },
+  { label: "난방방식",  value: "개별난방" },
+  { label: "입주예정",  value: "2029년 01월 (예정)" },
+  { label: "시행·시공", value: "동원개발 주식회사" },
 ];
 
 export default function Overview() {
   return (
-    <section className="bg-[#f7f5f0] py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
+    <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
+      {/* 섹션 번호 장식 */}
+      <span className="section-number section-number-dark" aria-hidden>01</span>
+
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle
           subtitle="Complex Overview"
           title="단지개요"
-          description="경기도 하남시 미사강변에 위치한 미경 파크 비스타의 단지 정보를 안내합니다."
+          description="부산광역시 사상구 최초 사상공원 민간공원조성 특례사업, 더파크 비스타 동원의 단지 정보를 안내합니다."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-          {/* 이미지 플레이스홀더 */}
-          <div className="relative">
-            <div className="aspect-[4/3] bg-gray-200 flex flex-col items-center justify-center gap-3 text-gray-400">
-              <ImagePlaceholderIcon />
-              <span className="text-sm tracking-wider">단지 조감도 이미지</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          {/* 이미지 + 뱃지 */}
+          <AnimatedSection animation="fade-left">
+            <div className="relative">
+              <div className="aspect-[4/3] bg-gradient-to-br from-[#1e4d2b] to-[#0d1f15] flex flex-col items-center justify-center gap-4 relative overflow-hidden">
+                {/* 조감도 플레이스홀더 느낌 */}
+                <div className="absolute inset-0 opacity-10"
+                  style={{ backgroundImage: "linear-gradient(45deg, rgba(201,150,60,0.3) 25%, transparent 25%, transparent 75%, rgba(201,150,60,0.3) 75%), linear-gradient(45deg, rgba(201,150,60,0.3) 25%, transparent 25%, transparent 75%, rgba(201,150,60,0.3) 75%)", backgroundSize: "40px 40px", backgroundPosition: "0 0, 20px 20px" }} />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-white/30 text-sm tracking-[0.4em]">단지 조감도 이미지</span>
+                {/* 코너 장식 */}
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#c9963c]/50" />
+                <div className="absolute bottom-12 right-4 w-8 h-8 border-r-2 border-b-2 border-[#c9963c]/50" />
+              </div>
+              {/* 오버레이 배지 */}
+              <div className="bg-[#0d1f15] px-5 py-5 flex justify-around text-center">
+                {[
+                  { v: "10개동", l: "규모" },
+                  { v: "852세대", l: "총 세대수" },
+                  { v: "25층", l: "최고 층수" },
+                ].map((b) => (
+                  <div key={b.l}>
+                    <p className="text-white font-black text-lg md:text-xl leading-none">{b.v}</p>
+                    <p className="text-[#c9963c] text-[11px] mt-1 tracking-wide font-medium">{b.l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* 오버레이 배지 */}
-            <div className="absolute bottom-0 left-0 right-0 bg-[#0c1b33]/85 backdrop-blur-sm px-5 py-4 flex justify-around text-center">
-              {[
-                { v: "10개동", l: "규모" },
-                { v: "1,234", l: "총세대" },
-                { v: "35층", l: "최고층" },
-              ].map((b) => (
-                <div key={b.l}>
-                  <p className="text-white font-bold text-lg md:text-xl leading-none">{b.v}</p>
-                  <p className="text-[#c4943a] text-[11px] mt-1 tracking-wide">{b.l}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          </AnimatedSection>
 
           {/* 스펙 테이블 */}
-          <div>
+          <AnimatedSection animation="fade-right" delay={150}>
             <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
               {SPECS.map((s) => (
-                <div key={s.label} className="flex py-3.5 md:py-4">
-                  <dt className="w-28 md:w-32 shrink-0 text-xs md:text-sm font-semibold text-[#0c1b33] tracking-wide py-0.5">
+                <div key={s.label} className="flex py-3.5 md:py-4 group hover:bg-[#c9963c]/5 transition-colors px-1">
+                  <dt className="w-28 md:w-32 shrink-0 text-xs md:text-sm font-bold text-[#0d1f15] tracking-wide py-0.5">
                     {s.label}
                   </dt>
                   <dd className="text-xs md:text-sm text-gray-600 leading-relaxed">{s.value}</dd>
@@ -62,37 +78,18 @@ export default function Overview() {
 
             {/* 인증 배지 */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {["에너지절약 우수등급", "친환경 인증", "스마트홈 적용", "무장애 설계"].map((badge) => (
+              {["사상공원 특례사업", "전세대 남향 위주", "친환경 인증", "스마트홈 적용"].map((badge) => (
                 <span
                   key={badge}
-                  className="border border-[#c4943a]/50 text-[#c4943a] text-[11px] font-medium px-3 py-1.5 tracking-wide"
+                  className="border border-[#c9963c]/50 text-[#c9963c] text-[11px] font-semibold px-3 py-1.5 tracking-wide"
                 >
-                  {badge}
+                  ✓ {badge}
                 </span>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
-  );
-}
-
-function ImagePlaceholderIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-14 h-14"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={0.8}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-      />
-    </svg>
   );
 }

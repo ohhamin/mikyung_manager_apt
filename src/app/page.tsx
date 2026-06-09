@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/sections/Hero";
 import Highlights from "@/components/sections/Highlights";
+import BrandIntro from "@/components/sections/BrandIntro";
 import Overview from "@/components/sections/Overview";
 import Location from "@/components/sections/Location";
 import UnitGuide from "@/components/sections/UnitGuide";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Highlights />
+        <BrandIntro />
         <div id="overview">
           <Overview />
         </div>

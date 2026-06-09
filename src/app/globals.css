@@ -19,43 +19,102 @@ body {
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0c1b33;
+  background: #0d1f15;
   border-radius: 3px;
 }
 
+/* ── 히어로 fade-in-up ── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s ease both;
+  animation: fadeInUp 0.85s cubic-bezier(0.4,0,0.2,1) both;
+}
+.animate-fade-in-up-d1 {
+  animation: fadeInUp 0.85s cubic-bezier(0.4,0,0.2,1) 0.2s both;
+}
+.animate-fade-in-up-d2 {
+  animation: fadeInUp 0.85s cubic-bezier(0.4,0,0.2,1) 0.4s both;
+}
+.animate-fade-in-up-d3 {
+  animation: fadeInUp 0.85s cubic-bezier(0.4,0,0.2,1) 0.6s both;
 }
 
+/* ── 스크롤 인디케이터 ── */
 @keyframes scrollLine {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
 }
-
 .animate-scroll-line {
   animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+/* ── 숫자 카운트업 shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── 섹션 공통 ── */
+.section-number {
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  top: -0.15em;
+  right: -0.05em;
+}
+.section-number-dark {
+  -webkit-text-stroke: 1px rgba(15,31,21,0.06);
+}
+
+/* ── 골드 구분선 ── */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #c9963c;
+}
+
+/* ── 반짝이는 버튼 효과 ── */
+@keyframes btnShine {
+  0%   { left: -100%; }
+  20%  { left: 120%; }
+  100% { left: 120%; }
+}
+.btn-shine {
+  overflow: hidden;
+  position: relative;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  animation: btnShine 3s ease infinite;
+  transform: skewX(-20deg);
+}
+
+/* ── 호버 카드 ── */
+.hover-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.12);
 }

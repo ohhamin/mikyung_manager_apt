@@ -23,17 +23,17 @@ export default function FloatingContact() {
           visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
-        <div className="grid grid-cols-2 border-t border-white/20">
+        <div className="grid grid-cols-2">
           <a
-            href="tel:031-1234-5678"
-            className="flex items-center justify-center gap-2 bg-[#0c1b33] text-white py-4 text-sm font-semibold tracking-wide active:bg-[#1a3a6b] transition-colors"
+            href="tel:051-123-4567"
+            className="flex items-center justify-center gap-2 bg-[#0d1f15] text-white py-4.5 py-[18px] text-sm font-black tracking-wide active:bg-[#1e4d2b] transition-colors"
           >
             <PhoneIcon />
             전화 문의
           </a>
           <button
             onClick={scrollToContact}
-            className="flex items-center justify-center gap-2 bg-[#c4943a] text-white py-4 text-sm font-semibold tracking-wide active:bg-[#a87830] transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#c9963c] text-white py-4.5 py-[18px] text-sm font-black tracking-wide active:bg-[#a87830] transition-colors btn-shine"
           >
             <FormIcon />
             상담 신청
@@ -48,22 +48,22 @@ export default function FloatingContact() {
         }`}
       >
         <a
-          href="tel:031-1234-5678"
-          className="flex items-center gap-2.5 bg-[#0c1b33] hover:bg-[#1a3a6b] text-white px-5 py-3.5 text-sm font-semibold shadow-xl transition-all hover:shadow-2xl"
+          href="tel:051-123-4567"
+          className="flex items-center gap-2.5 bg-[#0d1f15] hover:bg-[#1e4d2b] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl"
         >
           <PhoneIcon />
-          031-1234-5678
+          051-123-4567
         </a>
         <button
           onClick={scrollToContact}
-          className="flex items-center gap-2.5 bg-[#c4943a] hover:bg-[#a87830] text-white px-5 py-3.5 text-sm font-semibold shadow-xl transition-all hover:shadow-2xl"
+          className="flex items-center gap-2.5 bg-[#c9963c] hover:bg-[#a87830] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl btn-shine"
         >
           <FormIcon />
           상담 신청하기
         </button>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="self-end w-11 h-11 bg-white/90 hover:bg-white border border-gray-200 text-gray-600 hover:text-[#0c1b33] flex items-center justify-center shadow-lg transition-all"
+          className="self-end w-11 h-11 bg-white/90 hover:bg-white border border-gray-200 text-gray-600 hover:text-[#0d1f15] flex items-center justify-center shadow-lg transition-all"
           aria-label="맨 위로"
         >
           <UpIcon />
@@ -80,7 +80,6 @@ function PhoneIcon() {
     </svg>
   );
 }
-
 function FormIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,7 +87,6 @@ function FormIcon() {
     </svg>
   );
 }
-
 function UpIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
