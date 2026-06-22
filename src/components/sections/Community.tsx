@@ -36,7 +36,7 @@ export default function Community() {
 
         {/* 커뮤니티 이미지 */}
         <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#f0ece4]">
+          <div className="relative w-full aspect-[8/9] overflow-hidden bg-[#f0ece4]">
             <Image
               src="/25.jpg"
               alt="더파크 비스타 동원 커뮤니티 시설"
