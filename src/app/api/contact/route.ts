@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   const { name, phone, unitType, visitDate, message } = await request.json();
@@ -15,24 +17,20 @@ export async function POST(request: NextRequest) {
   ].join("\n");
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.naver.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: "ohm55545@naver.com",
-        pass: process.env.NAVER_MAIL_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: "ohm55545@naver.com",
+    const { error } = await resend.emails.send({
+      from: "더파크 비스타 동원 <onboarding@resend.dev>",
       to: "ohm55545@naver.com",
       subject: "더파크 비스타 동원 예약 신청",
       text: body,
     });
+
+    if (error) {
+      console.error("[contact] resend error:", error);
+      return NextResponse.json({ success: false, error }, { status: 500 });
+    }
   } catch (err) {
-    console.error("[contact] email send failed:", err);
+    console.error("[contact] unexpected error:", err);
+    return NextResponse.json({ success: false }, { status: 500 });
   }
 
   return NextResponse.json({ success: true });
