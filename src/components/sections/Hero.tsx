@@ -1,18 +1,21 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* 배경 그라디언트 (공원/자연 컨셉) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0d3020] via-[#0d1f15] to-[#070f0a]">
-        {/* 녹색 자연광 효과 */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_30%,rgba(30,93,52,0.45),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_20%_70%,rgba(10,40,18,0.6),transparent)]" />
+      {/* 배경 이미지 레이어 */}
+      <div className="absolute inset-0 bg-[#0d1f15]">
+        <img
+          src="/4.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ opacity: 0.45 }}
+          aria-hidden
+        />
+        {/* 녹색 자연광 오버레이 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0d3020]/70 via-[#0d1f15]/50 to-[#070f0a]/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_30%,rgba(30,93,52,0.3),transparent)]" />
         {/* 파티클 느낌의 점들 */}
-        <div className="absolute inset-0 opacity-[0.06]"
+        <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: "radial-gradient(circle, #c9963c 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
-        {/* 이미지 플레이스홀더 */}
-        <div className="absolute inset-0 flex items-center justify-center text-white/[0.04]">
-          <span className="text-[8vw] font-black tracking-tighter select-none">THE PARK VISTA</span>
-        </div>
         {/* 하단 그라디언트 */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />

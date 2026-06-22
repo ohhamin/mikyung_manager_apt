@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -80,6 +81,28 @@ export default function Community() {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* 단지 포토 갤러리 */}
+        <AnimatedSection animation="fade-up" delay={80} className="mb-12 md:mb-16">
+          <div className="grid grid-cols-3 gap-2 md:gap-3">
+            {[
+              { src: "/18.jpg", alt: "더파크 비스타 동원 단지 내부" },
+              { src: "/19.jpg", alt: "더파크 비스타 동원 커뮤니티 시설" },
+              { src: "/20.jpg", alt: "더파크 비스타 동원 생활 공간" },
+            ].map((img) => (
+              <div key={img.src} className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 640px) 33vw, (max-width: 1280px) 25vw, 400px"
+                />
+                <div className="absolute inset-0 bg-[#0d1f15]/30 hover:bg-transparent transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
 
         {/* 통계 바 */}
         <AnimatedSection animation="fade-up" delay={100}>

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const UNITS = [
   {
     id: "84A",
+    floorPlan: "/9.png",
     label: "84A형",
     area: "전용 84.9957㎡",
     supply: "공급 111.7080㎡",
@@ -27,6 +29,7 @@ const UNITS = [
   },
   {
     id: "84B",
+    floorPlan: "/10.png",
     label: "84B형",
     area: "전용 84.9958㎡",
     supply: "공급 113.0354㎡",
@@ -47,6 +50,7 @@ const UNITS = [
   },
   {
     id: "84C",
+    floorPlan: "/11.png",
     label: "84C형",
     area: "전용 84.9914㎡",
     supply: "공급 111.2515㎡",
@@ -67,6 +71,7 @@ const UNITS = [
   },
   {
     id: "84T",
+    floorPlan: "/12.png",
     label: "84T형",
     area: "전용 84.9852㎡",
     supply: "공급 110.8193㎡",
@@ -162,20 +167,20 @@ export default function UnitGuide() {
 
         {/* 평형 상세 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* 평면도 플레이스홀더 */}
+          {/* 평면도 이미지 */}
           <AnimatedSection animation="fade-left" key={`img-${active}`}>
             <div>
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#f0ece4] to-[#e8e2d6] flex flex-col items-center justify-center gap-3 text-gray-400 relative">
-                {/* 격자 패턴 */}
-                <div className="absolute inset-0 opacity-30"
-                  style={{ backgroundImage: "linear-gradient(#d4cfc6 1px, transparent 1px), linear-gradient(90deg, #d4cfc6 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-                <span className="relative z-10 text-sm tracking-wider">{unit.label} 평면도</span>
+              <div className="aspect-[4/3] relative overflow-hidden bg-[#f0ece4]">
+                <Image
+                  src={unit.floorPlan}
+                  alt={`더파크 비스타 동원 ${unit.label} 평면도`}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
                 {/* 코너 장식 */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#c9963c]/40" />
-                <div className="absolute bottom-16 right-4 w-6 h-6 border-r-2 border-b-2 border-[#c9963c]/40" />
+                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#c9963c]/60 z-10" />
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-[#c9963c]/60 z-10" />
               </div>
               {/* 스펙 바 */}
               <div className="bg-[#0d1f15] px-5 py-4 flex flex-wrap gap-4 justify-around text-center">
@@ -232,7 +237,7 @@ export default function UnitGuide() {
               >
                 상담 신청하기
               </a>
-              <button className="flex-1 border-2 border-[#0d1f15] text-[#0d1f15] hover:bg-[#0d1f15] hover:text-white py-4 text-sm font-bold tracking-wide transition-all">
+              <button type="button" className="flex-1 border-2 border-[#0d1f15] text-[#0d1f15] hover:bg-[#0d1f15] hover:text-white py-4 text-sm font-bold tracking-wide transition-all">
                 모델하우스 예약
               </button>
             </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -66,17 +67,17 @@ export default function Location() {
           description="팍세권·직주근접·대중교통 트리플 입지. 부산 사상구의 새로운 중심에서 최고의 라이프스타일을 누려보세요."
         />
 
-        {/* 지도 플레이스홀더 */}
+        {/* 입지 이미지 */}
         <AnimatedSection animation="fade-up" className="relative mb-10 md:mb-14">
-          <div className="w-full aspect-[16/7] md:aspect-[16/6] bg-gradient-to-br from-[#1e4d2b]/80 to-[#0d1f15] flex flex-col items-center justify-center gap-3 text-white/30 relative overflow-hidden">
-            {/* 그리드 라인 */}
-            <div className="absolute inset-0 opacity-10"
-              style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.6}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-            <span className="text-sm tracking-[0.4em]">입지 지도 이미지</span>
-            <span className="text-xs text-white/20">부산광역시 사상구 감전동 산 1-9 일원</span>
+          <div className="w-full aspect-[16/7] md:aspect-[16/6] relative overflow-hidden">
+            <Image
+              src="/2.png"
+              alt="더파크 비스타 동원 입지 환경"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[#0d1f15]/20" />
           </div>
           {/* 마커 */}
           <div className="absolute top-4 left-4 bg-[#0d1f15] text-white text-xs px-3 py-2 font-bold tracking-wide flex items-center gap-2">

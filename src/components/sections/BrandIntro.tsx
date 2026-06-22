@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const RECORDS = [
@@ -33,11 +34,15 @@ export default function BrandIntro() {
               이것이 50년간 7만 6천여 세대의 아파트를 공급해 오며 쌓아온 동원개발의 경영 철학이며,
               업계와 소비자로부터 가장 믿을 수 있는 기업이라는 평가를 받기까지 달려온 힘의 원동력입니다.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-px bg-[#c9963c]" />
-              <span className="text-[#c9963c] text-xs tracking-widest font-semibold uppercase">
-                Dongwon Development
-              </span>
+              <Image
+                src="/21.png"
+                alt="동원개발"
+                width={120}
+                height={18}
+                className="opacity-70 brightness-[10]"
+              />
             </div>
           </AnimatedSection>
 

@@ -26,14 +26,14 @@ export default function FloatingContact() {
         <div className="grid grid-cols-2">
           <a
             href="tel:051-123-4567"
-            className="flex items-center justify-center gap-2 bg-[#0d1f15] text-white py-4.5 py-[18px] text-sm font-black tracking-wide active:bg-[#1e4d2b] transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#0d1f15] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#1e4d2b] transition-colors"
           >
             <PhoneIcon />
             전화 문의
           </a>
           <button
             onClick={scrollToContact}
-            className="flex items-center justify-center gap-2 bg-[#c9963c] text-white py-4.5 py-[18px] text-sm font-black tracking-wide active:bg-[#a87830] transition-colors btn-shine"
+            className="flex items-center justify-center gap-2 bg-[#c9963c] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#a87830] transition-colors btn-shine"
           >
             <FormIcon />
             상담 신청

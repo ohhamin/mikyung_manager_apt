@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -35,17 +36,17 @@ export default function Overview() {
           {/* 이미지 + 뱃지 */}
           <AnimatedSection animation="fade-left">
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-[#1e4d2b] to-[#0d1f15] flex flex-col items-center justify-center gap-4 relative overflow-hidden">
-                {/* 조감도 플레이스홀더 느낌 */}
-                <div className="absolute inset-0 opacity-10"
-                  style={{ backgroundImage: "linear-gradient(45deg, rgba(201,150,60,0.3) 25%, transparent 25%, transparent 75%, rgba(201,150,60,0.3) 75%), linear-gradient(45deg, rgba(201,150,60,0.3) 25%, transparent 25%, transparent 75%, rgba(201,150,60,0.3) 75%)", backgroundSize: "40px 40px", backgroundPosition: "0 0, 20px 20px" }} />
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span className="text-white/30 text-sm tracking-[0.4em]">단지 조감도 이미지</span>
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src="/1.jpg"
+                  alt="더파크 비스타 동원 단지 조감도"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
                 {/* 코너 장식 */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#c9963c]/50" />
-                <div className="absolute bottom-12 right-4 w-8 h-8 border-r-2 border-b-2 border-[#c9963c]/50" />
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#c9963c]/70 z-10" />
+                <div className="absolute bottom-16 right-4 w-8 h-8 border-r-2 border-b-2 border-[#c9963c]/70 z-10" />
               </div>
               {/* 오버레이 배지 */}
               <div className="bg-[#0d1f15] px-5 py-5 flex justify-around text-center">

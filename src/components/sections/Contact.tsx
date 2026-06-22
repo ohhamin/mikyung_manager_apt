@@ -36,8 +36,8 @@ export default function Contact() {
     const e: FormErrors = {};
     if (!form.name.trim()) e.name = "이름을 입력해주세요.";
     if (!form.phone.trim()) e.phone = "연락처를 입력해주세요.";
-    else if (!/^[\d-]{9,14}$/.test(form.phone.replace(/\s/g, "")))
-      e.phone = "올바른 전화번호 형식으로 입력해주세요.";
+    else if (!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(form.phone.replace(/\s/g, "")))
+      e.phone = "올바른 전화번호 형식으로 입력해주세요. (예: 010-1234-5678)";
     if (!form.unitType) e.unitType = "관심 평형을 선택해주세요.";
     if (!form.privacy) e.privacy = "개인정보 수집 및 이용에 동의해주세요.";
     return e;
@@ -256,7 +256,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-[#c9963c] hover:bg-[#a87830] text-white py-4.5 py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#c9963c]/25 btn-shine"
+                className="w-full bg-[#c9963c] hover:bg-[#a87830] text-white py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#c9963c]/25 btn-shine"
               >
                 무료 상담 신청하기
               </button>
