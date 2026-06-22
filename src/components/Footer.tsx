@@ -2,7 +2,6 @@ const LINKS = [
   { label: "단지개요", id: "overview" },
   { label: "입지환경", id: "location" },
   { label: "평형안내", id: "units" },
-  { label: "분양안내", id: "schedule" },
   { label: "단지특화", id: "features" },
   { label: "상담신청", id: "contact" },
 ];
@@ -26,8 +25,8 @@ export default function Footer() {
               <p>📍 부산광역시 사상구 감전동 산 1-9 일원</p>
               <p>
                 📞 분양 문의:{" "}
-                <a href="tel:051-123-4567" className="text-white/65 hover:text-white transition-colors font-bold">
-                  051-123-4567
+                <a href="tel:1877-2131" className="text-white/65 hover:text-white transition-colors font-bold">
+                  1877-2131
                 </a>
               </p>
               <p>🕐 평일 09:00~18:00 · 주말 10:00~17:00</p>

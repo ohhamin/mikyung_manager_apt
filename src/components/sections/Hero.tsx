@@ -40,7 +40,7 @@ export default function Hero() {
               alt="동원개발"
               width={160}
               height={24}
-              className="brightness-[10] opacity-90"
+              className=""
             />
           </div>
 

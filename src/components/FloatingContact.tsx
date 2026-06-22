@@ -25,7 +25,7 @@ export default function FloatingContact() {
       >
         <div className="grid grid-cols-2">
           <a
-            href="tel:051-123-4567"
+            href="tel:1877-2131"
             className="flex items-center justify-center gap-2 bg-[#0d1f15] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#1e4d2b] transition-colors"
           >
             <PhoneIcon />
@@ -48,11 +48,11 @@ export default function FloatingContact() {
         }`}
       >
         <a
-          href="tel:051-123-4567"
+          href="tel:1877-2131"
           className="flex items-center gap-2.5 bg-[#0d1f15] hover:bg-[#1e4d2b] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl"
         >
           <PhoneIcon />
-          051-123-4567
+          1877-2131
         </a>
         <button
           onClick={scrollToContact}

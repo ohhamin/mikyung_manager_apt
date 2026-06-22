@@ -4,7 +4,6 @@ import Highlights from "@/components/sections/Highlights";
 import Overview from "@/components/sections/Overview";
 import UnitGuide from "@/components/sections/UnitGuide";
 import Location from "@/components/sections/Location";
-import SalesSchedule from "@/components/sections/SalesSchedule";
 import Features from "@/components/sections/Features";
 import Community from "@/components/sections/Community";
 import Contact from "@/components/sections/Contact";
@@ -27,10 +26,7 @@ export default function Home() {
         <div id="location">
           <Location />
         </div>
-        <div id="schedule">
-          <SalesSchedule />
-        </div>
-        <div id="features">
+<div id="features">
           <Features />
         </div>
         <Community />

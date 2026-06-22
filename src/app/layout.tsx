@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const notoSansKR = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "900"],
-  variable: "--font-noto-sans-kr",
+const pretendard = localFont({
+  src: [
+    { path: "../../public/Pretendard-Thin.subset.woff2", weight: "100", style: "normal" },
+    { path: "../../public/Pretendard-ExtraLight.subset.woff2", weight: "200", style: "normal" },
+    { path: "../../public/Pretendard-Light.subset.woff2", weight: "300", style: "normal" },
+    { path: "../../public/Pretendard-Regular.subset.woff2", weight: "400", style: "normal" },
+    { path: "../../public/Pretendard-Medium.subset.woff2", weight: "500", style: "normal" },
+    { path: "../../public/Pretendard-SemiBold.subset.woff2", weight: "600", style: "normal" },
+    { path: "../../public/Pretendard-Bold.subset.woff2", weight: "700", style: "normal" },
+    { path: "../../public/Pretendard-ExtraBold.subset.woff2", weight: "800", style: "normal" },
+    { path: "../../public/Pretendard-Black.subset.woff2", weight: "900", style: "normal" },
+  ],
+  variable: "--font-pretendard",
   display: "swap",
 });
 
@@ -37,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={notoSansKR.variable}>
+    <html lang="ko" className={pretendard.variable}>
       <body className="antialiased bg-white text-gray-900">{children}</body>
     </html>
   );

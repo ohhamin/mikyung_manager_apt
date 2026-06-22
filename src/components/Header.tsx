@@ -6,7 +6,6 @@ const NAV_ITEMS = [
   { label: "단지개요", id: "overview" },
   { label: "세대평면", id: "units" },
   { label: "입지환경", id: "location" },
-  { label: "분양안내", id: "schedule" },
   { label: "단지특화", id: "features" },
   { label: "상담신청", id: "contact" },
 ];
@@ -87,11 +86,11 @@ export default function Header() {
           {/* 전화 + 햄버거 */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:051-123-4567"
+              href="tel:1877-2131"
               className="hidden sm:flex items-center gap-1.5 bg-[#c9963c] hover:bg-[#a87830] text-white px-4 py-2.5 text-[13px] font-semibold tracking-wide transition-colors btn-shine"
             >
               <PhoneIcon />
-              <span>051-123-4567</span>
+              <span>1877-2131</span>
             </a>
             <button
               className="lg:hidden text-white p-2 -mr-1.5"
@@ -125,11 +124,11 @@ export default function Header() {
               </button>
             ))}
             <a
-              href="tel:051-123-4567"
+              href="tel:1877-2131"
               className="mt-3.5 flex items-center justify-center gap-2 bg-[#c9963c] text-white px-4 py-4 text-sm font-bold btn-shine"
             >
               <PhoneIcon />
-              051-123-4567 분양 문의
+              1877-2131 분양 문의
             </a>
           </div>
         </div>
