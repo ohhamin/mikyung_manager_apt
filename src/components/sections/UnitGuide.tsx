@@ -98,7 +98,7 @@ export default function UnitGuide() {
 
   return (
     <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
-      <span className="section-number section-number-dark" aria-hidden>03</span>
+      <span className="section-number section-number-dark" aria-hidden>02</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle

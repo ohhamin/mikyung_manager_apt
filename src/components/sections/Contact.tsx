@@ -90,7 +90,7 @@ export default function Contact() {
   return (
     <>
       <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
-        <span className="section-number section-number-dark" aria-hidden>07</span>
+        <span className="section-number section-number-dark" aria-hidden>06</span>
 
         {/* grid 오버레이: 두 상태를 같은 셀에 겹쳐서 높이 고정 */}
         <div className="grid">
@@ -280,10 +280,10 @@ export default function Contact() {
       {/* 오시는 길 */}
       <section className="bg-white py-16 md:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
-          <AnimatedSection animation="fade-up" className="mb-8 md:mb-10">
+          <AnimatedSection animation="fade-up" className="mb-8 md:mb-10 text-center">
             <p className="text-[#901649] text-[11px] tracking-[0.45em] font-semibold uppercase mb-2">Directions</p>
             <h2 className="text-[#901649] text-2xl md:text-3xl font-black tracking-tight">오시는 길</h2>
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex items-center justify-center gap-3 mt-4">
               <div className="w-10 h-px bg-[#901649]" />
               <div className="w-1.5 h-1.5 rotate-45 bg-[#901649]" />
               <div className="w-10 h-px bg-[#901649]" />

@@ -21,7 +21,7 @@ const SPECS = [
 
 export default function Overview() {
   return (
-    <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
+    <section className="bg-white py-20 md:py-28 overflow-hidden relative">
       {/* 섹션 번호 장식 */}
       <span className="section-number section-number-dark" aria-hidden>01</span>
 

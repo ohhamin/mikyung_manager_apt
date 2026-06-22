@@ -57,14 +57,14 @@ export default function Hero() {
           </div>
 
           {/* 구분선 */}
-          <div className="animate-fade-in-up-d2 flex items-center gap-4 mb-10">
+          <div className="animate-fade-in-up-d2 flex items-center justify-center gap-4 mb-10">
             <div className="w-14 h-px bg-[#ffffff]" />
             <div className="w-2 h-2 rotate-45 bg-[#ffffff]" />
             <div className="w-14 h-px bg-[#ffffff]" />
           </div>
 
           {/* 하단 스펙 바 */}
-          <div className="animate-fade-in-up-d3 grid grid-cols-2 sm:grid-cols-4 border border-white/12 max-w-2xl lg:max-w-3xl">
+          <div className="animate-fade-in-up-d3 grid grid-cols-2 sm:grid-cols-4 border border-white/12 max-w-2xl lg:max-w-3xl mx-auto">
             {[
               { value: "852", unit: "세대", label: "총 세대수" },
               { value: "25", unit: "층", label: "최고 층수" },

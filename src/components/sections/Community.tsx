@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -25,117 +22,50 @@ const COMMUNITY_FACILITIES = [
   { name: "게스트하우스", size: "2룸 4실", floor: "동 1층", icon: "🏠" },
 ];
 
-const CAROUSEL_IMAGES = [
-  { src: "/9.png",  alt: "더파크 비스타 동원 커뮤니티 시설 1" },
-  { src: "/10.png", alt: "더파크 비스타 동원 커뮤니티 시설 2" },
-  { src: "/11.png", alt: "더파크 비스타 동원 커뮤니티 시설 3" },
-  { src: "/12.png", alt: "더파크 비스타 동원 커뮤니티 시설 4" },
-];
-
 export default function Community() {
-  const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => (c - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length);
-  const next = () => setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length);
-
   return (
-    <section className="bg-[#901649] py-20 md:py-28 overflow-hidden relative">
-      <span className="section-number" aria-hidden>06</span>
+    <section className="bg-white py-20 md:py-28 overflow-hidden relative">
+      <span className="section-number section-number-dark" aria-hidden>05</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle
           subtitle="Community & Park"
           title="커뮤니티 시설"
           description="사상공원과 하나되는 프리미엄 주거 환경. 자연 속 커뮤니티로 더 건강하고 행복한 일상을 누리세요."
-          light
         />
 
-        {/* 커뮤니티 이미지 캐러셀 */}
+        {/* 커뮤니티 이미지 */}
         <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
-          <div className="md:max-w-2xl md:mx-auto">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-[#f0ece4]">
-            {CAROUSEL_IMAGES.map((img, i) => (
-              <div
-                key={img.src}
-                className="absolute inset-0 transition-opacity duration-700"
-                style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-contain"
-                  sizes="100vw"
-                />
-              </div>
-            ))}
-
-            {/* 이전/다음 버튼 */}
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="이전 이미지"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              aria-label="다음 이미지"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-
-          {/* 인디케이터 - 캐러셀 아래 */}
-          <div className="flex justify-center gap-2 mt-4">
-            {CAROUSEL_IMAGES.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setCurrent(i)}
-                aria-label={`${i + 1}번 이미지`}
-                className="transition-all duration-300"
-              >
-                <span
-                  className="block rounded-full transition-all duration-300"
-                  style={{
-                    width: i === current ? "24px" : "10px",
-                    height: "10px",
-                    background: i === current ? "#ffffff" : "rgba(255,255,255,0.3)",
-                  }}
-                />
-              </button>
-            ))}
-          </div>
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#f0ece4]">
+            <Image
+              src="/25.jpg"
+              alt="더파크 비스타 동원 커뮤니티 시설"
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
           </div>
         </AnimatedSection>
 
         {/* 공원 특례 섹션 */}
         <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
-          <div className="bg-white/5 border border-white/10 p-7 md:p-10">
+          <div className="bg-gray-50 border border-gray-200 p-7 md:p-10">
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-[#ffffff] text-[11px] tracking-[0.4em] font-bold uppercase">Park Facilities</span>
-              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-[#901649] text-[11px] tracking-[0.4em] font-bold uppercase">Park Facilities</span>
+              <div className="flex-1 h-px bg-gray-200" />
             </div>
-            <p className="text-white text-lg md:text-xl font-black mb-2 tracking-tight">
+            <p className="text-gray-800 text-lg md:text-xl font-black mb-2 tracking-tight">
               사상공원 — 단지가 곧 공원
             </p>
-            <p className="text-white/50 text-sm mb-8 leading-relaxed">
+            <p className="text-gray-500 text-sm mb-8 leading-relaxed">
               사상공원 민간공원조성 특례사업으로 단지 주변에 조성되는 대규모 공원 시설
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               {PARK_FACILITIES.map((f, i) => (
                 <AnimatedSection key={f.name} animation="zoom-in" delay={i * 60} threshold={0.05}>
-                  <div className="bg-white/5 border border-white/10 hover:border-[#ffffff]/40 p-4 text-center transition-all hover:bg-white/10 cursor-default">
-                    <p className="text-white text-xs font-bold leading-tight mb-1">{f.name}</p>
-                    <p className="text-[#ffffff] text-[10px] leading-tight">{f.desc}</p>
+                  <div className="bg-white border border-gray-200 hover:border-[#901649]/40 p-4 text-center transition-all hover:bg-[#901649]/5 cursor-default">
+                    <p className="text-gray-800 text-xs font-bold leading-tight mb-1">{f.name}</p>
+                    <p className="text-[#901649] text-[10px] leading-tight">{f.desc}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -146,19 +76,19 @@ export default function Community() {
         {/* 커뮤니티 시설 그리드 */}
         <AnimatedSection animation="fade-up" delay={50}>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[#ffffff] text-[11px] tracking-[0.4em] font-bold uppercase">Community</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-[#901649] text-[11px] tracking-[0.4em] font-bold uppercase">Community</span>
+            <div className="flex-1 h-px bg-gray-200" />
           </div>
         </AnimatedSection>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
           {COMMUNITY_FACILITIES.map((f, i) => (
             <AnimatedSection key={f.name} animation="fade-up" delay={i * 60} threshold={0.05}>
-              <div className="group bg-white/5 border border-white/8 hover:border-[#ffffff]/40 hover:bg-white/8 transition-all p-5 md:p-6">
+              <div className="group bg-gray-50 border border-gray-100 hover:border-[#901649]/40 hover:bg-[#901649]/5 transition-all p-5 md:p-6">
                 <div className="text-2xl mb-3">{f.icon}</div>
-                <p className="text-white text-xs md:text-sm font-black leading-tight mb-1">{f.name}</p>
-                <p className="text-[#ffffff] text-[10px] font-medium">{f.floor}</p>
-                <p className="text-white/35 text-[10px] mt-0.5">{f.size}</p>
+                <p className="text-gray-800 text-xs md:text-sm font-black leading-tight mb-1">{f.name}</p>
+                <p className="text-[#901649] text-[10px] font-medium">{f.floor}</p>
+                <p className="text-gray-400 text-[10px] mt-0.5">{f.size}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -166,7 +96,7 @@ export default function Community() {
 
         {/* 통계 바 */}
         <AnimatedSection animation="fade-up" delay={100}>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 border-t border-white/10 pt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 border-t border-gray-200 pt-10">
             {[
               { value: "8종+", label: "커뮤니티 시설" },
               { value: "6개", label: "공원 특화 공간" },
@@ -174,8 +104,8 @@ export default function Community() {
               { value: "무료", label: "입주민 이용" },
             ].map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-white font-black text-3xl md:text-4xl">{s.value}</p>
-                <p className="text-white/35 text-xs mt-1.5 tracking-wide">{s.label}</p>
+                <p className="text-[#901649] font-black text-3xl md:text-4xl">{s.value}</p>
+                <p className="text-gray-400 text-xs mt-1.5 tracking-wide">{s.label}</p>
               </div>
             ))}
           </div>

@@ -72,7 +72,7 @@ export default function Location() {
 
   return (
     <section className="bg-white py-20 md:py-28 overflow-hidden relative">
-      <span className="section-number section-number-dark" aria-hidden>02</span>
+      <span className="section-number section-number-dark" aria-hidden>03</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle

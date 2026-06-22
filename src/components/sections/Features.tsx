@@ -73,8 +73,8 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <section className="bg-white py-20 md:py-28 overflow-hidden relative">
-      <span className="section-number section-number-dark" aria-hidden>05</span>
+    <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
+      <span className="section-number section-number-dark" aria-hidden>04</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         <SectionTitle
@@ -85,9 +85,9 @@ export default function Features() {
 
         {/* 특화 이미지 배너 */}
         <AnimatedSection animation="fade-up" className="mb-10 md:mb-14">
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#f5f3ef]">
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-white">
             <Image
-              src="/13.png"
+              src="/13.jpg"
               alt="더파크 비스타 동원 단지 특화"
               fill
               className="object-contain"
@@ -99,7 +99,7 @@ export default function Features() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {FEATURES.map((f, i) => (
             <AnimatedSection key={f.num} animation="fade-up" delay={i * 80} threshold={0.05}>
-              <div className="hover-card group bg-[#f5f3ef] p-8 border border-transparent hover:border-[#ffffff]/20 h-full">
+              <div className="hover-card group bg-white p-8 border border-transparent hover:border-[#901649]/20 h-full">
                 {/* 번호 + 아이콘 행 */}
                 <div className="flex items-start justify-between mb-5">
                   <div className="text-gray-400 group-hover:scale-110 transition-transform duration-300">
