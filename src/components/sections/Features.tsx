@@ -85,12 +85,12 @@ export default function Features() {
 
         {/* 특화 이미지 배너 */}
         <AnimatedSection animation="fade-up" className="mb-10 md:mb-14">
-          <div className="relative w-full aspect-[16/7] overflow-hidden bg-[#f5f3ef]">
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#f5f3ef]">
             <Image
               src="/13.png"
               alt="더파크 비스타 동원 단지 특화"
               fill
-              className="object-cover object-center"
+              className="object-contain"
               sizes="100vw"
             />
           </div>
