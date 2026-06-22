@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "ohm55545@gmail.com",
+    pass: process.env.GMAIL_APP_PASS,
+  },
+});
 
 export async function POST(request: NextRequest) {
   const { name, phone, unitType, visitDate, message } = await request.json();
@@ -17,19 +23,14 @@ export async function POST(request: NextRequest) {
   ].join("\n");
 
   try {
-    const { error } = await resend.emails.send({
-      from: "더파크 비스타 동원 <onboarding@resend.dev>",
+    await transporter.sendMail({
+      from: '"더파크 비스타 동원" <ohm55545@gmail.com>',
       to: "ohm55545@gmail.com",
       subject: "더파크 비스타 동원 예약 신청",
       text: body,
     });
-
-    if (error) {
-      console.error("[contact] resend error:", error);
-      return NextResponse.json({ success: false, error }, { status: 500 });
-    }
   } catch (err) {
-    console.error("[contact] unexpected error:", err);
+    console.error("[contact] gmail send failed:", err);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 
