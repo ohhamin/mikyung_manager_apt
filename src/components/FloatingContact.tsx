@@ -57,7 +57,7 @@ export default function FloatingContact() {
         </a>
         <button
           onClick={scrollToContact}
-          className="flex items-center gap-2.5 bg-[#ffffff] hover:bg-[#d0d0d0] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl btn-shine"
+          className="flex items-center gap-2.5 bg-white hover:bg-gray-100 text-gray-900 px-5 py-3.5 text-sm font-black shadow-xl transition-all hover:shadow-2xl btn-shine"
         >
           <FormIcon />
           상담 신청하기

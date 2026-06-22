@@ -83,6 +83,7 @@ export default function Location() {
 
         {/* 이미지 캐러셀 */}
         <AnimatedSection animation="fade-up" className="relative mb-10 md:mb-14">
+          <div className="md:max-w-2xl md:mx-auto">
           <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-gray-100">
             {CAROUSEL_IMAGES.map((img, i) => (
               <div
@@ -143,6 +144,7 @@ export default function Location() {
                 />
               </button>
             ))}
+          </div>
           </div>
         </AnimatedSection>
 
