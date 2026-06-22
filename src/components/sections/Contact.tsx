@@ -128,32 +128,9 @@ export default function Contact() {
               description="전문 상담사가 1:1로 맞춤 상담을 도와드립니다. 아래 양식을 작성해주시면 신속히 연락드리겠습니다."
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start max-w-5xl mx-auto">
-              {/* 연락처 정보 */}
-              <AnimatedSection animation="fade-left" className="lg:col-span-2">
-                <div className="bg-[#901649] p-8 h-full">
-                  <h3 className="text-white font-black text-lg mb-6 tracking-wide">문의 안내</h3>
-                  <div className="space-y-7">
-                    <div className="flex gap-4">
-                      <div className="text-white mt-0.5 shrink-0"><PhoneIcon /></div>
-                      <div>
-                        <p className="text-white/40 text-xs mb-1 tracking-wide">분양 문의 전화</p>
-                        <a href="tel:1877-2131" className="text-white font-black text-xl hover:underline transition-colors">
-                          1877-2131
-                        </a>
-                      </div>
-                    </div>
-                    <div className="border-t border-white/10 pt-6">
-                      <p className="text-white/35 text-xs mb-3 tracking-wide">시행·시공사</p>
-                      <p className="text-white/70 text-sm font-bold">동원개발 주식회사</p>
-                      <p className="text-white/35 text-xs mt-1">50년 신뢰 · 3無 경영</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
+            <div className="max-w-3xl mx-auto">
               {/* 폼 */}
-              <AnimatedSection animation="fade-right" delay={150} className="lg:col-span-3">
+              <AnimatedSection animation="fade-up">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* 이름 */}
@@ -266,6 +243,25 @@ export default function Contact() {
                     {loading ? "전송 중..." : "무료 상담 신청하기"}
                   </button>
                 </form>
+              </AnimatedSection>
+
+              {/* 문의 안내 - 하단 */}
+              <AnimatedSection animation="fade-up" delay={100} className="mt-6">
+                <div className="bg-[#901649] p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                  <div className="flex gap-4 items-center">
+                    <div className="text-white shrink-0"><PhoneIcon /></div>
+                    <div>
+                      <p className="text-white/40 text-xs mb-1 tracking-wide">분양 문의 전화</p>
+                      <a href="tel:1877-2131" className="text-white font-black text-xl hover:underline transition-colors">
+                        1877-2131
+                      </a>
+                    </div>
+                  </div>
+                  <div className="sm:border-l border-white/20 sm:pl-6">
+                    <p className="text-white/70 text-sm font-bold">동원개발 주식회사</p>
+                    <p className="text-white/35 text-xs mt-0.5">50년 신뢰 · 3無 경영 · 시행·시공</p>
+                  </div>
+                </div>
               </AnimatedSection>
             </div>
           </div>

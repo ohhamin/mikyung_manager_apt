@@ -13,7 +13,6 @@ export default function Hero() {
           priority
           sizes="100vw"
         />
-        {/* 어두운 오버레이 */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
@@ -33,14 +32,14 @@ export default function Hero() {
       <div className="relative z-10 w-full pt-[140px] pb-20 md:pt-[160px] md:pb-28">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
 
-          {/* 로고 */}
-          <div className="animate-fade-in-up mb-8">
+          {/* 로고 - 가운데 정렬 */}
+          <div className="animate-fade-in-up mb-8 flex justify-center">
             <Image
               src="/21.png"
               alt="동원개발"
               width={160}
               height={24}
-              className=""
+              className="object-contain"
             />
           </div>
 
@@ -49,30 +48,19 @@ export default function Hero() {
             <p className="text-white/55 text-xs md:text-sm font-medium tracking-[0.35em] mb-5 uppercase">
               민간공원 특례사업 · 서부산 랜드마크 대단지 아파트
             </p>
-            <h1 className="text-[clamp(1.6rem,4vw,3.4rem)] font-black text-white leading-[1.25] tracking-tight max-w-3xl">
-              62만㎡ 대규모 사상공원, 백양산의<br className="hidden sm:block" />
-              쾌적한 자연과 더 기대되는 미래 비전까지
+            <h1 className="text-[clamp(1.6rem,4vw,3.4rem)] font-black text-white/70 leading-[1.25] tracking-tight max-w-3xl">
+              민간공원 특례사업
             </h1>
             <h2 className="text-[clamp(1.4rem,3.2vw,2.7rem)] font-black text-white leading-[1.25] tracking-tight mt-2 max-w-2xl">
-              모두 앞서 누릴 단 한자리
+              서부산 랜드마크 대단지 아파트
             </h2>
           </div>
 
           {/* 구분선 */}
-          <div className="animate-fade-in-up-d2 flex items-center gap-4 mb-8">
+          <div className="animate-fade-in-up-d2 flex items-center gap-4 mb-10">
             <div className="w-14 h-px bg-[#ffffff]" />
             <div className="w-2 h-2 rotate-45 bg-[#ffffff]" />
             <div className="w-14 h-px bg-[#ffffff]" />
-          </div>
-
-          {/* 서브 타이틀 */}
-          <div className="animate-fade-in-up-d2 mb-10">
-            <p className="text-white/65 text-base md:text-lg font-semibold tracking-[0.15em]">
-              민간공원 특례사업
-            </p>
-            <p className="text-[#ffffff] text-xl md:text-2xl font-black tracking-wide mt-1">
-              서부산 랜드마크 대단지 아파트
-            </p>
           </div>
 
           {/* 하단 스펙 바 */}
@@ -106,13 +94,5 @@ export default function Hero() {
         <div className="w-px h-8 bg-white/25 animate-scroll-line" />
       </div>
     </section>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
   );
 }

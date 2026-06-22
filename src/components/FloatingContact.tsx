@@ -22,6 +22,7 @@ export default function FloatingContact() {
         className={`fixed bottom-0 inset-x-0 z-40 lg:hidden transition-all duration-500 ${
           visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
+        style={{ boxShadow: "0 -4px 16px rgba(0,0,0,0.18)" }}
       >
         <div className="grid grid-cols-2">
           <a

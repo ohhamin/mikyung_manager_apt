@@ -85,23 +85,14 @@ export default function Features() {
 
         {/* 특화 이미지 배너 */}
         <AnimatedSection animation="fade-up" className="mb-10 md:mb-14">
-          <div className="relative w-full aspect-[16/6] overflow-hidden bg-[#f5f3ef]">
+          <div className="relative w-full aspect-[16/7] overflow-hidden bg-[#f5f3ef]">
             <Image
               src="/13.png"
               alt="더파크 비스타 동원 단지 특화"
               fill
-              className="object-contain object-center"
+              className="object-cover object-center"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/20 to-transparent" />
-            <div className="absolute inset-0 flex items-center">
-              <div className="max-w-7xl mx-auto px-8 md:px-12">
-                <p className="text-gray-400 text-xs tracking-[0.4em] font-bold uppercase mb-2">Special Features</p>
-                <p className="text-[#901649] text-2xl md:text-3xl font-black leading-tight tracking-tight">
-                  한 차원 높은<br />주거 경험
-                </p>
-              </div>
-            </div>
           </div>
         </AnimatedSection>
 
