@@ -1,24 +1,21 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* 배경 이미지 레이어 */}
-      <div className="absolute inset-0 bg-[#0d1f15]">
-        <img
-          src="/4.png"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          style={{ opacity: 0.45 }}
-          aria-hidden
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* 배경 이미지 */}
+      <div className="absolute inset-0">
+        <Image
+          src="/1.jpg"
+          alt="더파크 비스타 동원 단지 전경"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
         />
-        {/* 녹색 자연광 오버레이 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0d3020]/70 via-[#0d1f15]/50 to-[#070f0a]/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_30%,rgba(30,93,52,0.3),transparent)]" />
-        {/* 파티클 느낌의 점들 */}
-        <div className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: "radial-gradient(circle, #c9963c 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
-        {/* 하단 그라디언트 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+        {/* 어두운 오버레이 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
       {/* 우측 장식선 */}
@@ -33,41 +30,54 @@ export default function Hero() {
       </div>
 
       {/* 컨텐츠 */}
-      <div className="relative z-10 w-full pb-20 md:pb-28 lg:pb-32">
+      <div className="relative z-10 w-full pt-28 pb-20 md:pt-36 md:pb-28">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
 
-          {/* 상단 뱃지 */}
-          <div className="animate-fade-in-up mb-6 inline-flex items-center gap-3">
-            <div className="w-8 h-px bg-[#c9963c]" />
-            <span className="text-[#c9963c] text-[10px] md:text-[11px] tracking-[0.5em] font-semibold uppercase">
-              Busan · Sasang · Gamdong
-            </span>
-            <div className="w-8 h-px bg-[#c9963c]" />
+          {/* 로고 */}
+          <div className="animate-fade-in-up mb-8">
+            <Image
+              src="/21.png"
+              alt="동원개발"
+              width={160}
+              height={24}
+              className="brightness-[10] opacity-90"
+            />
           </div>
 
           {/* 메인 카피 */}
-          <div className="animate-fade-in-up-d1">
-            <p className="text-white/55 text-sm md:text-base font-light tracking-[0.25em] mb-3">
-              공원 속의 명당
+          <div className="animate-fade-in-up-d1 mb-6">
+            <p className="text-white/55 text-xs md:text-sm font-medium tracking-[0.35em] mb-5 uppercase">
+              민간공원 특례사업 · 서부산 랜드마크 대단지 아파트
             </p>
-            <h1 className="text-[clamp(3rem,9vw,7.5rem)] font-black text-white leading-[0.9] tracking-tight mb-2">
-              더파크
+            <h1 className="text-[clamp(1.6rem,4vw,3.4rem)] font-black text-white leading-[1.25] tracking-tight max-w-3xl">
+              62만㎡ 대규모 사상공원, 백양산의<br className="hidden sm:block" />
+              쾌적한 자연과 더 기대되는 미래 비전까지
             </h1>
-            <h1 className="text-[clamp(3rem,9vw,7.5rem)] font-black leading-[0.9] tracking-tight mb-6"
-              style={{ WebkitTextStroke: "2px rgba(201,150,60,0.7)", color: "transparent" }}>
-              비스타 동원
-            </h1>
+            <h2 className="text-[clamp(1.4rem,3.2vw,2.7rem)] font-black leading-[1.25] tracking-tight mt-2 max-w-2xl"
+              style={{ WebkitTextStroke: "1.5px rgba(201,150,60,0.8)", color: "transparent" }}>
+              모두 앞서 누릴 단 한자리
+            </h2>
           </div>
 
-          {/* 서브 카피 */}
-          <p className="animate-fade-in-up-d2 text-white/60 text-sm md:text-base leading-[1.9] mb-10 max-w-lg">
-            부산광역시 사상구 최초<br />
-            <strong className="text-white/85 font-semibold">사상공원 민간공원조성 특례사업</strong>으로 탄생하는<br />
-            공원이 곧 프리미엄인 주거 공간
-          </p>
+          {/* 구분선 */}
+          <div className="animate-fade-in-up-d2 flex items-center gap-4 mb-8">
+            <div className="w-14 h-px bg-[#c9963c]" />
+            <div className="w-2 h-2 rotate-45 bg-[#c9963c]" />
+            <div className="w-14 h-px bg-[#c9963c]" />
+          </div>
+
+          {/* 서브 타이틀 */}
+          <div className="animate-fade-in-up-d2 mb-10">
+            <p className="text-white/65 text-base md:text-lg font-semibold tracking-[0.15em]">
+              민간공원 특례사업
+            </p>
+            <p className="text-[#c9963c] text-xl md:text-2xl font-black tracking-wide mt-1">
+              서부산 랜드마크 대단지 아파트
+            </p>
+          </div>
 
           {/* CTA 버튼 */}
-          <div className="animate-fade-in-up-d2 flex flex-wrap gap-3 mb-12 md:mb-16">
+          <div className="animate-fade-in-up-d2 flex flex-wrap gap-3 mb-14 md:mb-18">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 bg-[#c9963c] hover:bg-[#a87830] text-white px-8 py-4 text-sm font-bold tracking-widest transition-all duration-300 hover:shadow-2xl hover:shadow-[#c9963c]/30 btn-shine"

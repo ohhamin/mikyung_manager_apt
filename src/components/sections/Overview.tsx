@@ -38,7 +38,7 @@ export default function Overview() {
             <div className="relative">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
-                  src="/1.jpg"
+                  src="/3.png"
                   alt="더파크 비스타 동원 단지 조감도"
                   fill
                   className="object-cover object-center"

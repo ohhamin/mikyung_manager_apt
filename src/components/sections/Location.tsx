@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -55,7 +58,18 @@ const INFRA = [
   },
 ];
 
+const CAROUSEL_IMAGES = [
+  { src: "/22.jpg", alt: "더파크 비스타 동원 입지 환경 1" },
+  { src: "/6.png",  alt: "더파크 비스타 동원 입지 환경 2" },
+  { src: "/7.png",  alt: "더파크 비스타 동원 입지 환경 3" },
+];
+
 export default function Location() {
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length);
+  const next = () => setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length);
+
   return (
     <section className="bg-white py-20 md:py-28 overflow-hidden relative">
       <span className="section-number section-number-dark" aria-hidden>02</span>
@@ -67,29 +81,95 @@ export default function Location() {
           description="팍세권·직주근접·대중교통 트리플 입지. 부산 사상구의 새로운 중심에서 최고의 라이프스타일을 누려보세요."
         />
 
-        {/* 입지 이미지 */}
+        {/* 이미지 캐러셀 */}
         <AnimatedSection animation="fade-up" className="relative mb-10 md:mb-14">
-          <div className="w-full aspect-[16/7] md:aspect-[16/6] relative overflow-hidden">
-            <Image
-              src="/2.png"
-              alt="더파크 비스타 동원 입지 환경"
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-[#0d1f15]/20" />
+          <div className="relative w-full aspect-[16/7] md:aspect-[16/6] overflow-hidden">
+            {CAROUSEL_IMAGES.map((img, i) => (
+              <div
+                key={img.src}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover object-center"
+                  sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-[#0d1f15]/20" />
+              </div>
+            ))}
+
+            {/* 이전/다음 버튼 */}
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="이전 이미지"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="다음 이미지"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* 인디케이터 */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              {CAROUSEL_IMAGES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setCurrent(i)}
+                  aria-label={`${i + 1}번 이미지`}
+                  className="transition-all duration-300"
+                >
+                  <span
+                    className={`block rounded-full transition-all duration-300 ${
+                      i === current ? "w-6 h-2 bg-[#c9963c]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+
+            {/* 위치 마커 */}
+            <div className="absolute top-4 left-4 z-10 bg-[#0d1f15] text-white text-xs px-3 py-2 font-bold tracking-wide flex items-center gap-2">
+              <span className="text-[#c9963c]">📍</span>
+              더파크 비스타 동원
+            </div>
+            {/* 핵심 라벨 */}
+            <div className="absolute bottom-4 right-4 z-10 flex gap-2 flex-wrap justify-end">
+              {["팍세권", "감전역 도보", "사상역 인접"].map((tag) => (
+                <span key={tag} className="bg-[#c9963c] text-white text-[11px] font-bold px-3 py-1 tracking-wide">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-          {/* 마커 */}
-          <div className="absolute top-4 left-4 bg-[#0d1f15] text-white text-xs px-3 py-2 font-bold tracking-wide flex items-center gap-2">
-            <span className="text-[#c9963c]">📍</span>
-            더파크 비스타 동원
-          </div>
-          {/* 핵심 라벨 */}
-          <div className="absolute bottom-4 right-4 flex gap-2 flex-wrap justify-end">
-            {["팍세권", "감전역 도보", "사상역 인접"].map((tag) => (
-              <span key={tag} className="bg-[#c9963c] text-white text-[11px] font-bold px-3 py-1 tracking-wide">
-                {tag}
-              </span>
+
+          {/* 썸네일 */}
+          <div className="flex gap-2 mt-2">
+            {CAROUSEL_IMAGES.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                onClick={() => setCurrent(i)}
+                className={`relative flex-1 aspect-[16/6] overflow-hidden transition-all duration-300 ${
+                  i === current ? "ring-2 ring-[#c9963c]" : "opacity-55 hover:opacity-80"
+                }`}
+              >
+                <Image src={img.src} alt={img.alt} fill className="object-cover object-center" sizes="33vw" />
+              </button>
             ))}
           </div>
         </AnimatedSection>

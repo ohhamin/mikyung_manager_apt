@@ -8,7 +8,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const UNITS = [
   {
     id: "84A",
-    floorPlan: "/9.png",
+    floorPlan: "/14.png",
     label: "84A형",
     area: "전용 84.9957㎡",
     supply: "공급 111.7080㎡",
@@ -29,7 +29,7 @@ const UNITS = [
   },
   {
     id: "84B",
-    floorPlan: "/10.png",
+    floorPlan: "/15.png",
     label: "84B형",
     area: "전용 84.9958㎡",
     supply: "공급 113.0354㎡",
@@ -50,7 +50,7 @@ const UNITS = [
   },
   {
     id: "84C",
-    floorPlan: "/11.png",
+    floorPlan: "/16.png",
     label: "84C형",
     area: "전용 84.9914㎡",
     supply: "공급 111.2515㎡",
@@ -71,7 +71,7 @@ const UNITS = [
   },
   {
     id: "84T",
-    floorPlan: "/12.png",
+    floorPlan: "/17.png",
     label: "84T형",
     area: "전용 84.9852㎡",
     supply: "공급 110.8193㎡",
