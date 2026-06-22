@@ -178,10 +178,10 @@ export default function Contact() {
                         className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 bg-white transition-colors"
                       >
                         <option value="">평형을 선택해주세요</option>
-                        <option value="84A">84A형 (판상형 · 552세대)</option>
-                        <option value="84B">84B형 (판상형 · 143세대)</option>
-                        <option value="84C">84C형 (타워형 · 135세대)</option>
-                        <option value="84T">84T형 (판상형 · 22세대)</option>
+                        <option value="84A">84A형 (판상형)</option>
+                        <option value="84B">84B형 (판상형)</option>
+                        <option value="84C">84C형 (타워형)</option>
+                        <option value="84T">84T형 (판상형)</option>
                         <option value="미정">미정 / 모든 타입 문의</option>
                       </select>
                       {errors.unitType && <p className="text-red-500 text-xs mt-1.5">{errors.unitType}</p>}
