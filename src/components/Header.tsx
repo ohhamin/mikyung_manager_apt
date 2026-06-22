@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 const NAV_ITEMS = [
   { label: "단지개요", id: "overview" },
+  { label: "세대평면", id: "units" },
   { label: "입지환경", id: "location" },
-  { label: "평형안내", id: "units" },
   { label: "분양안내", id: "schedule" },
   { label: "단지특화", id: "features" },
   { label: "상담신청", id: "contact" },
