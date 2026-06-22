@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   try {
     const { error } = await resend.emails.send({
       from: "더파크 비스타 동원 <onboarding@resend.dev>",
-      to: "ohm55545@naver.com",
+      to: "ohm55545@gmail.com",
       subject: "더파크 비스타 동원 예약 신청",
       text: body,
     });
