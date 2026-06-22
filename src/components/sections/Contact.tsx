@@ -89,11 +89,16 @@ export default function Contact() {
 
   return (
     <>
-      <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative min-h-[680px]">
+      <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
         <span className="section-number section-number-dark" aria-hidden>07</span>
 
-        {submitted ? (
-          <div className="relative max-w-2xl mx-auto px-5 text-center flex flex-col items-center justify-center min-h-[400px]">
+        {/* grid 오버레이: 두 상태를 같은 셀에 겹쳐서 높이 고정 */}
+        <div className="grid">
+          {/* 완료 메시지 */}
+          <div
+            className="relative max-w-2xl mx-auto px-5 w-full text-center flex flex-col items-center justify-center"
+            style={{ gridArea: "1/1", visibility: submitted ? "visible" : "hidden", pointerEvents: submitted ? "auto" : "none" }}
+          >
             <AnimatedSection animation="zoom-in">
               <div className="w-20 h-20 bg-[#901649]/10 flex items-center justify-center mx-auto mb-6 border border-[#901649]/20">
                 <CheckIcon />
@@ -120,8 +125,12 @@ export default function Contact() {
               </button>
             </AnimatedSection>
           </div>
-        ) : (
-          <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
+
+          {/* 폼 (항상 렌더링 → 높이 기준) */}
+          <div
+            className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 w-full"
+            style={{ gridArea: "1/1", visibility: submitted ? "hidden" : "visible", pointerEvents: submitted ? "none" : "auto" }}
+          >
             <SectionTitle
               subtitle="Contact Us"
               title="상담 신청"
@@ -265,7 +274,7 @@ export default function Contact() {
               </AnimatedSection>
             </div>
           </div>
-        )}
+        </div>
       </section>
 
       {/* 오시는 길 */}
