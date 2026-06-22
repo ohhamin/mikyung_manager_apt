@@ -41,7 +41,7 @@ const ITEMS = [
 
 export default function Highlights() {
   return (
-    <section className="bg-[#901649]">
+    <section className="bg-[#901649] overflow-hidden">
       {/* 섹션 헤더 */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-16 md:pt-24 pb-10 md:pb-14">
         <AnimatedSection animation="fade-up" className="text-center">
