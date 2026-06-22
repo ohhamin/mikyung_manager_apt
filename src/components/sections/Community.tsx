@@ -52,87 +52,66 @@ export default function Community() {
 
         {/* 커뮤니티 이미지 캐러셀 */}
         <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
-          <div className="relative w-full overflow-hidden">
-            {/* 메인 이미지 */}
-            <div className="relative aspect-[16/7] md:aspect-[16/6]">
-              {CAROUSEL_IMAGES.map((img, i) => (
-                <div
-                  key={img.src}
-                  className="absolute inset-0 transition-opacity duration-700"
-                  style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover object-center"
-                    sizes="100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#901649]/25" />
-                </div>
-              ))}
-
-              {/* 이전/다음 버튼 */}
-              <button
-                type="button"
-                onClick={prev}
-                aria-label="이전 이미지"
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#ffffff] text-white flex items-center justify-center transition-colors duration-300"
+          <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-[#f0ece4]">
+            {CAROUSEL_IMAGES.map((img, i) => (
+              <div
+                key={img.src}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                />
+              </div>
+            ))}
+
+            {/* 이전/다음 버튼 */}
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="이전 이미지"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="다음 이미지"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-black/65 text-white flex items-center justify-center transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* 인디케이터 - 캐러셀 아래 */}
+          <div className="flex justify-center gap-2 mt-4">
+            {CAROUSEL_IMAGES.map((_, i) => (
               <button
+                key={i}
                 type="button"
-                onClick={next}
-                aria-label="다음 이미지"
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#ffffff] text-white flex items-center justify-center transition-colors duration-300"
+                onClick={() => setCurrent(i)}
+                aria-label={`${i + 1}번 이미지`}
+                className="transition-all duration-300"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+                <span
+                  className="block rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? "24px" : "10px",
+                    height: "10px",
+                    background: i === current ? "#ffffff" : "rgba(255,255,255,0.3)",
+                  }}
+                />
               </button>
-
-              {/* 인디케이터 */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                {CAROUSEL_IMAGES.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setCurrent(i)}
-                    aria-label={`${i + 1}번 이미지`}
-                  >
-                    <span
-                      className={`block rounded-full transition-all duration-300 ${
-                        i === current ? "w-6 h-2 bg-[#ffffff]" : "w-2 h-2 bg-white/40 hover:bg-white/70"
-                      }`}
-                    />
-                  </button>
-                ))}
-              </div>
-
-              {/* 슬라이드 번호 */}
-              <div className="absolute top-4 right-4 z-10 bg-black/50 text-white text-xs font-bold px-3 py-1.5 tracking-wide">
-                {String(current + 1).padStart(2, "0")} / {String(CAROUSEL_IMAGES.length).padStart(2, "0")}
-              </div>
-            </div>
-
-            {/* 썸네일 */}
-            <div className="flex gap-1.5 mt-1.5">
-              {CAROUSEL_IMAGES.map((img, i) => (
-                <button
-                  key={img.src}
-                  type="button"
-                  onClick={() => setCurrent(i)}
-                  className={`relative flex-1 aspect-[4/3] overflow-hidden transition-all duration-300 ${
-                    i === current ? "ring-2 ring-[#ffffff]" : "opacity-40 hover:opacity-70"
-                  }`}
-                >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover object-center" sizes="25vw" />
-                </button>
-              ))}
-            </div>
+            ))}
           </div>
         </AnimatedSection>
 

@@ -83,7 +83,7 @@ export default function Location() {
 
         {/* 이미지 캐러셀 */}
         <AnimatedSection animation="fade-up" className="relative mb-10 md:mb-14">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden">
+          <div className="relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-gray-100">
             {CAROUSEL_IMAGES.map((img, i) => (
               <div
                 key={img.src}
@@ -94,7 +94,7 @@ export default function Location() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  className="object-cover object-center"
+                  className="object-contain"
                   sizes="100vw"
                 />
               </div>

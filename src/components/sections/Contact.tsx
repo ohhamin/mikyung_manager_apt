@@ -48,27 +48,40 @@ export default function Contact() {
     privacy: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validate = (): FormErrors => {
     const e: FormErrors = {};
     if (!form.name.trim()) e.name = "이름을 입력해주세요.";
     if (!form.phone.trim()) e.phone = "연락처를 입력해주세요.";
-    else if (!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(form.phone.replace(/\s/g, "")))
-      e.phone = "올바른 전화번호 형식으로 입력해주세요. (예: 010-1234-5678)";
+    else if (!/^0\d{9,10}$/.test(form.phone))
+      e.phone = "올바른 전화번호를 입력해주세요. (예: 01012345678)";
     if (!form.unitType) e.unitType = "관심 평형을 선택해주세요.";
     if (!form.privacy) e.privacy = "개인정보 수집 및 이용에 동의해주세요.";
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   const set = (key: keyof FormState, value: string | boolean) =>
@@ -76,11 +89,13 @@ export default function Contact() {
 
   return (
     <>
-      {submitted ? (
-        <section className="bg-[#f5f3ef] py-20 md:py-28">
-          <div className="max-w-2xl mx-auto px-5 text-center">
+      <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative min-h-[680px]">
+        <span className="section-number section-number-dark" aria-hidden>07</span>
+
+        {submitted ? (
+          <div className="relative max-w-2xl mx-auto px-5 text-center flex flex-col items-center justify-center min-h-[400px]">
             <AnimatedSection animation="zoom-in">
-              <div className="w-20 h-20 bg-[#ffffff]/10 flex items-center justify-center mx-auto mb-6 border border-[#ffffff]/20">
+              <div className="w-20 h-20 bg-[#901649]/10 flex items-center justify-center mx-auto mb-6 border border-[#901649]/20">
                 <CheckIcon />
               </div>
               <h2 className="text-[#901649] text-2xl md:text-3xl font-black mb-3 tracking-tight">
@@ -90,7 +105,7 @@ export default function Contact() {
                 빠른 시간 내에 담당 직원이 연락드리겠습니다.
                 <br />
                 문의전화:{" "}
-                <a href="tel:1877-2131" className="font-black text-[#901649] hover:text-[#ffffff] transition-colors">
+                <a href="tel:1877-2131" className="font-black text-[#901649] hover:underline transition-colors">
                   1877-2131
                 </a>
               </p>
@@ -105,11 +120,7 @@ export default function Contact() {
               </button>
             </AnimatedSection>
           </div>
-        </section>
-      ) : (
-        <section className="bg-[#f5f3ef] py-20 md:py-28 overflow-hidden relative">
-          <span className="section-number section-number-dark" aria-hidden>07</span>
-
+        ) : (
           <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
             <SectionTitle
               subtitle="Contact Us"
@@ -124,10 +135,10 @@ export default function Contact() {
                   <h3 className="text-white font-black text-lg mb-6 tracking-wide">문의 안내</h3>
                   <div className="space-y-7">
                     <div className="flex gap-4">
-                      <div className="text-[#ffffff] mt-0.5 shrink-0"><PhoneIcon /></div>
+                      <div className="text-white mt-0.5 shrink-0"><PhoneIcon /></div>
                       <div>
                         <p className="text-white/40 text-xs mb-1 tracking-wide">분양 문의 전화</p>
-                        <a href="tel:1877-2131" className="text-white font-black text-xl hover:text-[#ffffff] transition-colors">
+                        <a href="tel:1877-2131" className="text-white font-black text-xl hover:underline transition-colors">
                           1877-2131
                         </a>
                       </div>
@@ -148,7 +159,7 @@ export default function Contact() {
                     {/* 이름 */}
                     <div>
                       <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
-                        이름 <span className="text-[#ffffff]">*</span>
+                        이름 <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -163,13 +174,15 @@ export default function Contact() {
                     {/* 연락처 */}
                     <div>
                       <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
-                        연락처 <span className="text-[#ffffff]">*</span>
+                        연락처 <span className="text-red-500">*</span>
                       </label>
                       <input
-                        type="tel"
+                        type="text"
+                        inputMode="numeric"
                         value={form.phone}
-                        onChange={(e) => set("phone", e.target.value)}
-                        placeholder="010-0000-0000"
+                        onChange={(e) => set("phone", e.target.value.replace(/\D/g, ""))}
+                        placeholder="01012345678"
+                        maxLength={11}
                         className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white transition-colors"
                       />
                       {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone}</p>}
@@ -180,7 +193,7 @@ export default function Contact() {
                     {/* 관심 평형 */}
                     <div>
                       <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
-                        관심 평형 <span className="text-[#ffffff]">*</span>
+                        관심 평형 <span className="text-red-500">*</span>
                       </label>
                       <select
                         value={form.unitType}
@@ -232,7 +245,7 @@ export default function Contact() {
                         type="checkbox"
                         checked={form.privacy}
                         onChange={(e) => set("privacy", e.target.checked)}
-                        className="mt-0.5 w-4 h-4 accent-[#ffffff] cursor-pointer"
+                        className="mt-0.5 w-4 h-4 accent-[#901649] cursor-pointer"
                       />
                       <span className="text-xs text-gray-500 leading-relaxed">
                         <strong className="text-gray-700">개인정보 수집 및 이용에 동의합니다.</strong>
@@ -247,27 +260,28 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#901649] hover:bg-[#b01e5a] text-white py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#901649]/25 btn-shine"
+                    disabled={loading}
+                    className="w-full bg-[#901649] hover:bg-[#b01e5a] disabled:opacity-70 text-white py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#901649]/25 btn-shine"
                   >
-                    무료 상담 신청하기
+                    {loading ? "전송 중..." : "무료 상담 신청하기"}
                   </button>
                 </form>
               </AnimatedSection>
             </div>
           </div>
-        </section>
-      )}
+        )}
+      </section>
 
       {/* 오시는 길 */}
       <section className="bg-white py-16 md:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection animation="fade-up" className="mb-8 md:mb-10">
-            <p className="text-[#ffffff] text-[11px] tracking-[0.45em] font-semibold uppercase mb-2">Directions</p>
+            <p className="text-[#901649] text-[11px] tracking-[0.45em] font-semibold uppercase mb-2">Directions</p>
             <h2 className="text-[#901649] text-2xl md:text-3xl font-black tracking-tight">오시는 길</h2>
             <div className="flex items-center gap-3 mt-4">
-              <div className="w-10 h-px bg-[#ffffff]" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-[#ffffff]" />
-              <div className="w-10 h-px bg-[#ffffff]" />
+              <div className="w-10 h-px bg-[#901649]" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-[#901649]" />
+              <div className="w-10 h-px bg-[#901649]" />
             </div>
           </AnimatedSection>
 
@@ -285,7 +299,7 @@ export default function Contact() {
                     />
                   </div>
                   <div className="bg-[#901649] p-5 md:p-6">
-                    <p className="text-[#ffffff] text-[10px] tracking-[0.4em] font-bold uppercase mb-1.5">
+                    <p className="text-white/60 text-[10px] tracking-[0.4em] font-bold uppercase mb-1.5">
                       {d.labelEn}
                     </p>
                     <p className="text-white font-black text-base mb-2">{d.label}</p>
@@ -306,7 +320,7 @@ export default function Contact() {
 
 function CheckIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-[#ffffff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-[#901649]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
   );
