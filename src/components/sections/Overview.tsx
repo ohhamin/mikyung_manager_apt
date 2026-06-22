@@ -45,11 +45,11 @@ export default function Overview() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 {/* 코너 장식 */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#c9963c]/70 z-10" />
-                <div className="absolute bottom-16 right-4 w-8 h-8 border-r-2 border-b-2 border-[#c9963c]/70 z-10" />
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#ffffff]/70 z-10" />
+                <div className="absolute bottom-16 right-4 w-8 h-8 border-r-2 border-b-2 border-[#ffffff]/70 z-10" />
               </div>
               {/* 오버레이 배지 */}
-              <div className="bg-[#0d1f15] px-5 py-5 flex justify-around text-center">
+              <div className="bg-[#901649] px-5 py-5 flex justify-around text-center">
                 {[
                   { v: "10개동", l: "규모" },
                   { v: "852세대", l: "총 세대수" },
@@ -57,7 +57,7 @@ export default function Overview() {
                 ].map((b) => (
                   <div key={b.l}>
                     <p className="text-white font-black text-lg md:text-xl leading-none">{b.v}</p>
-                    <p className="text-[#c9963c] text-[11px] mt-1 tracking-wide font-medium">{b.l}</p>
+                    <p className="text-[#ffffff] text-[11px] mt-1 tracking-wide font-medium">{b.l}</p>
                   </div>
                 ))}
               </div>
@@ -68,8 +68,8 @@ export default function Overview() {
           <AnimatedSection animation="fade-right" delay={150}>
             <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
               {SPECS.map((s) => (
-                <div key={s.label} className="flex py-3.5 md:py-4 group hover:bg-[#c9963c]/5 transition-colors px-1">
-                  <dt className="w-28 md:w-32 shrink-0 text-xs md:text-sm font-bold text-[#0d1f15] tracking-wide py-0.5">
+                <div key={s.label} className="flex py-3.5 md:py-4 group hover:bg-[#ffffff]/5 transition-colors px-1">
+                  <dt className="w-28 md:w-32 shrink-0 text-xs md:text-sm font-bold text-[#901649] tracking-wide py-0.5">
                     {s.label}
                   </dt>
                   <dd className="text-xs md:text-sm text-gray-600 leading-relaxed">{s.value}</dd>
@@ -82,7 +82,7 @@ export default function Overview() {
               {["사상공원 특례사업", "전세대 남향 위주", "친환경 인증", "스마트홈 적용"].map((badge) => (
                 <span
                   key={badge}
-                  className="border border-[#c9963c]/50 text-[#c9963c] text-[11px] font-semibold px-3 py-1.5 tracking-wide"
+                  className="border border-[#ffffff]/50 text-[#ffffff] text-[11px] font-semibold px-3 py-1.5 tracking-wide"
                 >
                   ✓ {badge}
                 </span>

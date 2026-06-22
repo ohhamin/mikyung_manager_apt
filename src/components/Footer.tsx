@@ -1,75 +1,24 @@
-const LINKS = [
-  { label: "단지개요", id: "overview" },
-  { label: "입지환경", id: "location" },
-  { label: "평형안내", id: "units" },
-  { label: "단지특화", id: "features" },
-  { label: "상담신청", id: "contact" },
-];
-
 export default function Footer() {
   return (
     <footer className="bg-[#070f0a] text-white/45 text-xs">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
         {/* 상단 */}
-        <div className="border-b border-white/8 py-12 md:py-14 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-          {/* 로고 + 연락처 */}
-          <div>
-            <div className="mb-6">
-              <p className="text-[#c9963c] text-[9px] tracking-[0.5em] font-bold uppercase mb-1.5">
-                Dongwon Development
-              </p>
-              <p className="text-white text-xl font-black tracking-wide">더파크 비스타 동원</p>
-              <p className="text-white/30 text-[11px] mt-1 tracking-wider">THE PARK VISTA DONGWON</p>
-            </div>
-            <div className="space-y-2">
-              <p>📍 부산광역시 사상구 감전동 산 1-9 일원</p>
-              <p>
-                📞 분양 문의:{" "}
-                <a href="tel:1877-2131" className="text-white/65 hover:text-white transition-colors font-bold">
-                  1877-2131
-                </a>
-              </p>
-              <p>🕐 평일 09:00~18:00 · 주말 10:00~17:00</p>
-            </div>
+        <div className="border-b border-white/8 py-10 md:py-12">
+          <div className="mb-5">
+            <p className="text-[#901649] text-[9px] tracking-[0.5em] font-bold uppercase mb-1.5">
+              Dongwon Development
+            </p>
+            <p className="text-white text-xl font-black tracking-wide">더파크 비스타 동원</p>
+            <p className="text-white/30 text-[11px] mt-1 tracking-wider">THE PARK VISTA DONGWON</p>
           </div>
-
-          {/* 빠른 메뉴 */}
-          <div>
-            <p className="text-white/25 text-[10px] tracking-[0.4em] uppercase mb-5">Quick Menu</p>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2.5">
-              {LINKS.map((l) => (
-                <li key={l.id}>
-                  <a
-                    href={`#${l.id}`}
-                    className="hover:text-[#c9963c] transition-colors text-[13px]"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 동원개발 정보 */}
-          <div>
-            <p className="text-white/25 text-[10px] tracking-[0.4em] uppercase mb-5">About Dongwon</p>
-            <div className="space-y-3">
-              <div>
-                <p className="text-white/60 text-[13px] font-bold">동원개발 주식회사</p>
-                <p className="text-white/30 text-[11px] mt-0.5">50년 신뢰의 주택 브랜드</p>
-              </div>
-              <div className="flex gap-3">
-                {["무적자", "무연체", "무지연"].map((v) => (
-                  <span key={v} className="border border-[#c9963c]/30 text-[#c9963c] text-[10px] font-bold px-2 py-1">
-                    {v}
-                  </span>
-                ))}
-              </div>
-              <p className="text-white/25 text-[11px] leading-relaxed">
-                창업 이래 3無 경영을 실천하며<br />
-                7만 6천여 세대를 공급한 신뢰의 기업
-              </p>
-            </div>
+          <div className="space-y-2">
+            <p>📍 부산광역시 사상구 감전동 산 1-9 일원</p>
+            <p>
+              📞 분양 문의:{" "}
+              <a href="tel:1877-2131" className="text-white/65 hover:text-white transition-colors font-bold">
+                1877-2131
+              </a>
+            </p>
           </div>
         </div>
 

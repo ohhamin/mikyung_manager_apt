@@ -80,17 +80,17 @@ export default function Contact() {
         <section className="bg-[#f5f3ef] py-20 md:py-28">
           <div className="max-w-2xl mx-auto px-5 text-center">
             <AnimatedSection animation="zoom-in">
-              <div className="w-20 h-20 bg-[#c9963c]/10 flex items-center justify-center mx-auto mb-6 border border-[#c9963c]/20">
+              <div className="w-20 h-20 bg-[#ffffff]/10 flex items-center justify-center mx-auto mb-6 border border-[#ffffff]/20">
                 <CheckIcon />
               </div>
-              <h2 className="text-[#0d1f15] text-2xl md:text-3xl font-black mb-3 tracking-tight">
+              <h2 className="text-[#901649] text-2xl md:text-3xl font-black mb-3 tracking-tight">
                 상담 신청이 완료되었습니다
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-8">
                 빠른 시간 내에 담당 직원이 연락드리겠습니다.
                 <br />
                 문의전화:{" "}
-                <a href="tel:1877-2131" className="font-black text-[#0d1f15] hover:text-[#c9963c] transition-colors">
+                <a href="tel:1877-2131" className="font-black text-[#901649] hover:text-[#ffffff] transition-colors">
                   1877-2131
                 </a>
               </p>
@@ -99,7 +99,7 @@ export default function Contact() {
                   setSubmitted(false);
                   setForm({ name: "", phone: "", unitType: "", visitDate: "", message: "", privacy: false });
                 }}
-                className="border-2 border-[#0d1f15] text-[#0d1f15] hover:bg-[#0d1f15] hover:text-white px-10 py-3.5 text-sm font-bold transition-all"
+                className="border-2 border-[#901649] text-[#901649] hover:bg-[#901649] hover:text-white px-10 py-3.5 text-sm font-bold transition-all"
               >
                 다시 신청하기
               </button>
@@ -120,17 +120,16 @@ export default function Contact() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start max-w-5xl mx-auto">
               {/* 연락처 정보 */}
               <AnimatedSection animation="fade-left" className="lg:col-span-2">
-                <div className="bg-[#0d1f15] p-8 h-full">
+                <div className="bg-[#901649] p-8 h-full">
                   <h3 className="text-white font-black text-lg mb-6 tracking-wide">문의 안내</h3>
                   <div className="space-y-7">
                     <div className="flex gap-4">
-                      <div className="text-[#c9963c] mt-0.5 shrink-0"><PhoneIcon /></div>
+                      <div className="text-[#ffffff] mt-0.5 shrink-0"><PhoneIcon /></div>
                       <div>
                         <p className="text-white/40 text-xs mb-1 tracking-wide">분양 문의 전화</p>
-                        <a href="tel:1877-2131" className="text-white font-black text-xl hover:text-[#c9963c] transition-colors">
+                        <a href="tel:1877-2131" className="text-white font-black text-xl hover:text-[#ffffff] transition-colors">
                           1877-2131
                         </a>
-                        <p className="text-white/35 text-xs mt-1">평일 09:00 ~ 18:00 / 주말 10:00 ~ 17:00</p>
                       </div>
                     </div>
                     <div className="border-t border-white/10 pt-6">
@@ -148,30 +147,30 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* 이름 */}
                     <div>
-                      <label className="block text-[#0d1f15] text-xs font-bold mb-2 tracking-wide">
-                        이름 <span className="text-[#c9963c]">*</span>
+                      <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
+                        이름 <span className="text-[#ffffff]">*</span>
                       </label>
                       <input
                         type="text"
                         value={form.name}
                         onChange={(e) => set("name", e.target.value)}
                         placeholder="이름을 입력해주세요"
-                        className="w-full border border-gray-200 focus:border-[#0d1f15] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white transition-colors"
+                        className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white transition-colors"
                       />
                       {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
                     </div>
 
                     {/* 연락처 */}
                     <div>
-                      <label className="block text-[#0d1f15] text-xs font-bold mb-2 tracking-wide">
-                        연락처 <span className="text-[#c9963c]">*</span>
+                      <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
+                        연락처 <span className="text-[#ffffff]">*</span>
                       </label>
                       <input
                         type="tel"
                         value={form.phone}
                         onChange={(e) => set("phone", e.target.value)}
                         placeholder="010-0000-0000"
-                        className="w-full border border-gray-200 focus:border-[#0d1f15] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white transition-colors"
+                        className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white transition-colors"
                       />
                       {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone}</p>}
                     </div>
@@ -180,13 +179,13 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* 관심 평형 */}
                     <div>
-                      <label className="block text-[#0d1f15] text-xs font-bold mb-2 tracking-wide">
-                        관심 평형 <span className="text-[#c9963c]">*</span>
+                      <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
+                        관심 평형 <span className="text-[#ffffff]">*</span>
                       </label>
                       <select
                         value={form.unitType}
                         onChange={(e) => set("unitType", e.target.value)}
-                        className="w-full border border-gray-200 focus:border-[#0d1f15] focus:outline-none px-4 py-3.5 text-sm text-gray-700 bg-white transition-colors"
+                        className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 bg-white transition-colors"
                       >
                         <option value="">평형을 선택해주세요</option>
                         <option value="84A">84A형 (판상형 · 552세대)</option>
@@ -200,21 +199,21 @@ export default function Contact() {
 
                     {/* 방문 희망일 */}
                     <div>
-                      <label className="block text-[#0d1f15] text-xs font-bold mb-2 tracking-wide">
+                      <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
                         방문 희망일 (선택)
                       </label>
                       <input
                         type="date"
                         value={form.visitDate}
                         onChange={(e) => set("visitDate", e.target.value)}
-                        className="w-full border border-gray-200 focus:border-[#0d1f15] focus:outline-none px-4 py-3.5 text-sm text-gray-700 bg-white transition-colors"
+                        className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 bg-white transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* 문의 내용 */}
                   <div>
-                    <label className="block text-[#0d1f15] text-xs font-bold mb-2 tracking-wide">
+                    <label className="block text-[#901649] text-xs font-bold mb-2 tracking-wide">
                       문의 내용
                     </label>
                     <textarea
@@ -222,7 +221,7 @@ export default function Contact() {
                       onChange={(e) => set("message", e.target.value)}
                       rows={4}
                       placeholder="문의하실 내용을 자유롭게 작성해주세요. (청약 자격, 대출, 평형 관련 등)"
-                      className="w-full border border-gray-200 focus:border-[#0d1f15] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white resize-none transition-colors"
+                      className="w-full border border-gray-200 focus:border-[#901649] focus:outline-none px-4 py-3.5 text-sm text-gray-700 placeholder-gray-300 bg-white resize-none transition-colors"
                     />
                   </div>
 
@@ -233,7 +232,7 @@ export default function Contact() {
                         type="checkbox"
                         checked={form.privacy}
                         onChange={(e) => set("privacy", e.target.checked)}
-                        className="mt-0.5 w-4 h-4 accent-[#c9963c] cursor-pointer"
+                        className="mt-0.5 w-4 h-4 accent-[#ffffff] cursor-pointer"
                       />
                       <span className="text-xs text-gray-500 leading-relaxed">
                         <strong className="text-gray-700">개인정보 수집 및 이용에 동의합니다.</strong>
@@ -248,7 +247,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#c9963c] hover:bg-[#a87830] text-white py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#c9963c]/25 btn-shine"
+                    className="w-full bg-[#901649] hover:bg-[#b01e5a] text-white py-[18px] text-sm font-black tracking-widest transition-all hover:shadow-xl hover:shadow-[#901649]/25 btn-shine"
                   >
                     무료 상담 신청하기
                   </button>
@@ -263,12 +262,12 @@ export default function Contact() {
       <section className="bg-white py-16 md:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection animation="fade-up" className="mb-8 md:mb-10">
-            <p className="text-[#c9963c] text-[11px] tracking-[0.45em] font-semibold uppercase mb-2">Directions</p>
-            <h2 className="text-[#0d1f15] text-2xl md:text-3xl font-black tracking-tight">오시는 길</h2>
+            <p className="text-[#ffffff] text-[11px] tracking-[0.45em] font-semibold uppercase mb-2">Directions</p>
+            <h2 className="text-[#901649] text-2xl md:text-3xl font-black tracking-tight">오시는 길</h2>
             <div className="flex items-center gap-3 mt-4">
-              <div className="w-10 h-px bg-[#c9963c]" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-[#c9963c]" />
-              <div className="w-10 h-px bg-[#c9963c]" />
+              <div className="w-10 h-px bg-[#ffffff]" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-[#ffffff]" />
+              <div className="w-10 h-px bg-[#ffffff]" />
             </div>
           </AnimatedSection>
 
@@ -285,8 +284,8 @@ export default function Contact() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="bg-[#0d1f15] p-5 md:p-6">
-                    <p className="text-[#c9963c] text-[10px] tracking-[0.4em] font-bold uppercase mb-1.5">
+                  <div className="bg-[#901649] p-5 md:p-6">
+                    <p className="text-[#ffffff] text-[10px] tracking-[0.4em] font-bold uppercase mb-1.5">
                       {d.labelEn}
                     </p>
                     <p className="text-white font-black text-base mb-2">{d.label}</p>
@@ -307,7 +306,7 @@ export default function Contact() {
 
 function CheckIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-[#c9963c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-[#ffffff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
   );

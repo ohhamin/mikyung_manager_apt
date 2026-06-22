@@ -19,7 +19,7 @@ body {
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0d1f15;
+  background: #901649;
   border-radius: 3px;
 }
 
@@ -73,7 +73,7 @@ body {
   right: -0.05em;
 }
 .section-number-dark {
-  -webkit-text-stroke: 1px rgba(15,31,21,0.06);
+  -webkit-text-stroke: 1px rgba(144,22,73,0.06);
 }
 
 /* ── 골드 구분선 ── */
@@ -87,7 +87,7 @@ body {
   content: '';
   flex: 1;
   height: 1px;
-  background: #c9963c;
+  background: #ffffff;
 }
 
 /* ── 반짝이는 버튼 효과 ── */

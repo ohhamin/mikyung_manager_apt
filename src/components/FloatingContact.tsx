@@ -26,14 +26,14 @@ export default function FloatingContact() {
         <div className="grid grid-cols-2">
           <a
             href="tel:1877-2131"
-            className="flex items-center justify-center gap-2 bg-[#0d1f15] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#1e4d2b] transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#901649] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#b01e5a] transition-colors"
           >
             <PhoneIcon />
             전화 문의
           </a>
           <button
             onClick={scrollToContact}
-            className="flex items-center justify-center gap-2 bg-[#c9963c] text-white py-[18px] text-sm font-black tracking-wide active:bg-[#a87830] transition-colors btn-shine"
+            className="flex items-center justify-center gap-2 bg-white text-[#901649] py-[18px] text-sm font-black tracking-wide active:bg-[#d0d0d0] transition-colors btn-shine"
           >
             <FormIcon />
             상담 신청
@@ -49,21 +49,21 @@ export default function FloatingContact() {
       >
         <a
           href="tel:1877-2131"
-          className="flex items-center gap-2.5 bg-[#0d1f15] hover:bg-[#1e4d2b] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl"
+          className="flex items-center gap-2.5 bg-[#901649] hover:bg-[#b01e5a] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl"
         >
           <PhoneIcon />
           1877-2131
         </a>
         <button
           onClick={scrollToContact}
-          className="flex items-center gap-2.5 bg-[#c9963c] hover:bg-[#a87830] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl btn-shine"
+          className="flex items-center gap-2.5 bg-[#ffffff] hover:bg-[#d0d0d0] text-white px-5 py-3.5 text-sm font-black shadow-2xl transition-all hover:shadow-3xl btn-shine"
         >
           <FormIcon />
           상담 신청하기
         </button>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="self-end w-11 h-11 bg-white/90 hover:bg-white border border-gray-200 text-gray-600 hover:text-[#0d1f15] flex items-center justify-center shadow-lg transition-all"
+          className="self-end w-11 h-11 bg-white/90 hover:bg-white border border-gray-200 text-gray-600 hover:text-[#901649] flex items-center justify-center shadow-lg transition-all"
           aria-label="맨 위로"
         >
           <UpIcon />

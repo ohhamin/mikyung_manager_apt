@@ -20,7 +20,7 @@ export default function SectionTitle({
       {subtitle && (
         <p
           className={`text-[11px] md:text-xs tracking-[0.45em] font-bold uppercase mb-3 ${
-            light ? "text-[#e8c97a]" : "text-[#c9963c]"
+            light ? "text-white" : "text-[#901649]"
           }`}
         >
           {subtitle}
@@ -28,15 +28,15 @@ export default function SectionTitle({
       )}
       <h2
         className={`text-3xl md:text-4xl lg:text-5xl font-black mb-5 leading-tight tracking-tight ${
-          light ? "text-white" : "text-[#0d1f15]"
+          light ? "text-white" : "text-[#901649]"
         }`}
       >
         {title}
       </h2>
       <div className={`flex items-center gap-3 mb-5 ${align === "left" ? "" : "justify-center"}`}>
-        <div className="w-12 h-px bg-[#c9963c]" />
-        <div className="w-2 h-2 rotate-45 bg-[#c9963c]" />
-        <div className="w-12 h-px bg-[#c9963c]" />
+        <div className={`w-12 h-px ${light ? "bg-white" : "bg-[#901649]"}`} />
+        <div className={`w-2 h-2 rotate-45 ${light ? "bg-white" : "bg-[#901649]"}`} />
+        <div className={`w-12 h-px ${light ? "bg-white" : "bg-[#901649]"}`} />
       </div>
       {description && (
         <p

@@ -39,7 +39,7 @@ export default function Community() {
   const next = () => setCurrent((c) => (c + 1) % CAROUSEL_IMAGES.length);
 
   return (
-    <section className="bg-[#0d1f15] py-20 md:py-28 overflow-hidden relative">
+    <section className="bg-[#901649] py-20 md:py-28 overflow-hidden relative">
       <span className="section-number" aria-hidden>06</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
@@ -68,7 +68,7 @@ export default function Community() {
                     className="object-cover object-center"
                     sizes="100vw"
                   />
-                  <div className="absolute inset-0 bg-[#0d1f15]/25" />
+                  <div className="absolute inset-0 bg-[#901649]/25" />
                 </div>
               ))}
 
@@ -77,7 +77,7 @@ export default function Community() {
                 type="button"
                 onClick={prev}
                 aria-label="이전 이미지"
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#c9963c] text-white flex items-center justify-center transition-colors duration-300"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#ffffff] text-white flex items-center justify-center transition-colors duration-300"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -87,7 +87,7 @@ export default function Community() {
                 type="button"
                 onClick={next}
                 aria-label="다음 이미지"
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#c9963c] text-white flex items-center justify-center transition-colors duration-300"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/40 hover:bg-[#ffffff] text-white flex items-center justify-center transition-colors duration-300"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -105,7 +105,7 @@ export default function Community() {
                   >
                     <span
                       className={`block rounded-full transition-all duration-300 ${
-                        i === current ? "w-6 h-2 bg-[#c9963c]" : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                        i === current ? "w-6 h-2 bg-[#ffffff]" : "w-2 h-2 bg-white/40 hover:bg-white/70"
                       }`}
                     />
                   </button>
@@ -126,7 +126,7 @@ export default function Community() {
                   type="button"
                   onClick={() => setCurrent(i)}
                   className={`relative flex-1 aspect-[4/3] overflow-hidden transition-all duration-300 ${
-                    i === current ? "ring-2 ring-[#c9963c]" : "opacity-40 hover:opacity-70"
+                    i === current ? "ring-2 ring-[#ffffff]" : "opacity-40 hover:opacity-70"
                   }`}
                 >
                   <Image src={img.src} alt={img.alt} fill className="object-cover object-center" sizes="25vw" />
@@ -140,7 +140,7 @@ export default function Community() {
         <AnimatedSection animation="fade-up" className="mb-14 md:mb-18">
           <div className="bg-white/5 border border-white/10 p-7 md:p-10">
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-[#c9963c] text-[11px] tracking-[0.4em] font-bold uppercase">Park Facilities</span>
+              <span className="text-[#ffffff] text-[11px] tracking-[0.4em] font-bold uppercase">Park Facilities</span>
               <div className="flex-1 h-px bg-white/10" />
             </div>
             <p className="text-white text-lg md:text-xl font-black mb-2 tracking-tight">
@@ -152,9 +152,9 @@ export default function Community() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
               {PARK_FACILITIES.map((f, i) => (
                 <AnimatedSection key={f.name} animation="zoom-in" delay={i * 60} threshold={0.05}>
-                  <div className="bg-white/5 border border-white/10 hover:border-[#c9963c]/40 p-4 text-center transition-all hover:bg-white/10 cursor-default">
+                  <div className="bg-white/5 border border-white/10 hover:border-[#ffffff]/40 p-4 text-center transition-all hover:bg-white/10 cursor-default">
                     <p className="text-white text-xs font-bold leading-tight mb-1">{f.name}</p>
-                    <p className="text-[#c9963c] text-[10px] leading-tight">{f.desc}</p>
+                    <p className="text-[#ffffff] text-[10px] leading-tight">{f.desc}</p>
                   </div>
                 </AnimatedSection>
               ))}
@@ -165,7 +165,7 @@ export default function Community() {
         {/* 커뮤니티 시설 그리드 */}
         <AnimatedSection animation="fade-up" delay={50}>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[#c9963c] text-[11px] tracking-[0.4em] font-bold uppercase">Community</span>
+            <span className="text-[#ffffff] text-[11px] tracking-[0.4em] font-bold uppercase">Community</span>
             <div className="flex-1 h-px bg-white/10" />
           </div>
         </AnimatedSection>
@@ -173,10 +173,10 @@ export default function Community() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
           {COMMUNITY_FACILITIES.map((f, i) => (
             <AnimatedSection key={f.name} animation="fade-up" delay={i * 60} threshold={0.05}>
-              <div className="group bg-white/5 border border-white/8 hover:border-[#c9963c]/40 hover:bg-white/8 transition-all p-5 md:p-6">
+              <div className="group bg-white/5 border border-white/8 hover:border-[#ffffff]/40 hover:bg-white/8 transition-all p-5 md:p-6">
                 <div className="text-2xl mb-3">{f.icon}</div>
                 <p className="text-white text-xs md:text-sm font-black leading-tight mb-1">{f.name}</p>
-                <p className="text-[#c9963c] text-[10px] font-medium">{f.floor}</p>
+                <p className="text-[#ffffff] text-[10px] font-medium">{f.floor}</p>
                 <p className="text-white/35 text-[10px] mt-0.5">{f.size}</p>
               </div>
             </AnimatedSection>

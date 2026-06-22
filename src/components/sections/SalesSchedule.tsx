@@ -55,7 +55,7 @@ const PRICES = [
 
 export default function SalesSchedule() {
   return (
-    <section className="bg-[#0d1f15] py-20 md:py-28 overflow-hidden relative">
+    <section className="bg-[#901649] py-20 md:py-28 overflow-hidden relative">
       <span className="section-number" aria-hidden>04</span>
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-10">
@@ -69,8 +69,8 @@ export default function SalesSchedule() {
         {/* 타임라인 */}
         <div className="mb-16 md:mb-20">
           <AnimatedSection animation="fade-up">
-            <h3 className="text-[#c9963c] text-xs tracking-[0.4em] font-bold uppercase mb-8 flex items-center gap-3">
-              <span className="w-6 h-px bg-[#c9963c]" />
+            <h3 className="text-[#ffffff] text-xs tracking-[0.4em] font-bold uppercase mb-8 flex items-center gap-3">
+              <span className="w-6 h-px bg-[#ffffff]" />
               청약 일정
             </h3>
           </AnimatedSection>
@@ -80,7 +80,7 @@ export default function SalesSchedule() {
                 <div
                   className={`relative p-7 border h-full transition-all ${
                     t.highlight
-                      ? "bg-[#c9963c] border-[#c9963c]"
+                      ? "bg-[#ffffff] border-[#ffffff]"
                       : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"
                   }`}
                 >
@@ -90,7 +90,7 @@ export default function SalesSchedule() {
                     {t.step}
                   </div>
                   <p className="text-white text-sm font-black mb-2 tracking-wide">{t.label}</p>
-                  <p className={`text-xs font-bold mb-2 ${t.highlight ? "text-white/75" : "text-[#c9963c]"}`}>
+                  <p className={`text-xs font-bold mb-2 ${t.highlight ? "text-white/75" : "text-[#ffffff]"}`}>
                     {t.date}
                   </p>
                   <p className={`text-xs leading-relaxed ${t.highlight ? "text-white/70" : "text-white/45"}`}>
@@ -104,8 +104,8 @@ export default function SalesSchedule() {
 
         {/* 분양가 */}
         <AnimatedSection animation="fade-up">
-          <h3 className="text-[#c9963c] text-xs tracking-[0.4em] font-bold uppercase mb-8 flex items-center gap-3">
-            <span className="w-6 h-px bg-[#c9963c]" />
+          <h3 className="text-[#ffffff] text-xs tracking-[0.4em] font-bold uppercase mb-8 flex items-center gap-3">
+            <span className="w-6 h-px bg-[#ffffff]" />
             분양가 안내
           </h3>
         </AnimatedSection>
@@ -128,11 +128,11 @@ export default function SalesSchedule() {
                   <tr key={p.type} className="hover:bg-white/5 transition-colors group">
                     <td className="py-4 pr-4 text-white font-black text-sm">{p.type}</td>
                     <td className="py-4 pr-4">
-                      <span className="text-[#c9963c] text-[11px] font-bold bg-[#c9963c]/10 px-2 py-1">{p.tag}</span>
+                      <span className="text-[#ffffff] text-[11px] font-bold bg-[#ffffff]/10 px-2 py-1">{p.tag}</span>
                     </td>
                     <td className="py-4 pr-4 text-white/55 text-sm">{p.supply}</td>
                     <td className="py-4 pr-4 text-white/75 text-sm">{p.low}</td>
-                    <td className="py-4 pr-4 text-[#c9963c] font-black text-sm">{p.high}</td>
+                    <td className="py-4 pr-4 text-[#ffffff] font-black text-sm">{p.high}</td>
                     <td className="py-4 text-right text-white/45 text-sm">{p.count}</td>
                   </tr>
                 ))}
@@ -150,7 +150,7 @@ export default function SalesSchedule() {
           <p className="text-white/50 text-sm mb-5">청약 자격 및 상세 조건은 전문 상담사에게 문의하세요</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-[#c9963c] hover:bg-[#a87830] text-white px-10 py-4 text-sm font-black tracking-widest transition-all btn-shine"
+            className="inline-flex items-center gap-2 bg-[#ffffff] hover:bg-[#d0d0d0] text-white px-10 py-4 text-sm font-black tracking-widest transition-all btn-shine"
           >
             무료 상담 신청하기
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

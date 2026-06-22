@@ -110,7 +110,7 @@ export default function UnitGuide() {
         {/* 세대 분포 바 */}
         <AnimatedSection animation="fade-up" className="mb-10 md:mb-12">
           <div className="bg-white border border-gray-200 p-5 md:p-7 flex flex-col gap-4">
-            <p className="text-[#0d1f15] text-sm font-bold tracking-wide mb-1">세대 구성 비율</p>
+            <p className="text-[#901649] text-sm font-bold tracking-wide mb-1">세대 구성 비율</p>
             <div className="flex h-4 rounded-sm overflow-hidden gap-px">
               {UNITS.map((u) => (
                 <button
@@ -120,7 +120,7 @@ export default function UnitGuide() {
                   className="transition-all h-full"
                   style={{
                     flex: parseFloat(u.ratio),
-                    background: active === u.id ? "#c9963c" : "#0d1f15",
+                    background: active === u.id ? "#ffffff" : "#901649",
                     opacity: active === u.id ? 1 : 0.35,
                   }}
                 />
@@ -132,10 +132,10 @@ export default function UnitGuide() {
                   key={u.id}
                   onClick={() => setActive(u.id)}
                   className={`flex items-center gap-2 text-xs transition-colors ${
-                    active === u.id ? "text-[#c9963c] font-bold" : "text-gray-500 hover:text-[#0d1f15]"
+                    active === u.id ? "text-[#ffffff] font-bold" : "text-gray-500 hover:text-[#901649]"
                   }`}
                 >
-                  <span className={`w-2.5 h-2.5 inline-block ${active === u.id ? "bg-[#c9963c]" : "bg-[#0d1f15]/30"}`} />
+                  <span className={`w-2.5 h-2.5 inline-block ${active === u.id ? "bg-[#ffffff]" : "bg-[#901649]/30"}`} />
                   {u.label} ({u.ratio})
                 </button>
               ))}
@@ -152,12 +152,12 @@ export default function UnitGuide() {
                 onClick={() => setActive(u.id)}
                 className={`px-5 md:px-7 py-3.5 text-sm font-bold tracking-wide transition-all ${
                   active === u.id
-                    ? "bg-[#0d1f15] text-white"
-                    : "text-gray-500 hover:text-[#0d1f15] hover:bg-gray-50"
+                    ? "bg-[#901649] text-white"
+                    : "text-gray-500 hover:text-[#901649] hover:bg-gray-50"
                 }`}
               >
                 {u.label}
-                <span className={`block text-[10px] mt-0.5 font-normal ${active === u.id ? "text-[#c9963c]" : "text-gray-400"}`}>
+                <span className={`block text-[10px] mt-0.5 font-normal ${active === u.id ? "text-[#ffffff]" : "text-gray-400"}`}>
                   {u.type}
                 </span>
               </button>
@@ -179,11 +179,11 @@ export default function UnitGuide() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 {/* 코너 장식 */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#c9963c]/60 z-10" />
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-[#c9963c]/60 z-10" />
+                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-[#ffffff]/60 z-10" />
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-[#ffffff]/60 z-10" />
               </div>
               {/* 스펙 바 */}
-              <div className="bg-[#0d1f15] px-5 py-4 flex flex-wrap gap-4 justify-around text-center">
+              <div className="bg-[#901649] px-5 py-4 flex flex-wrap gap-4 justify-around text-center">
                 {[
                   { v: unit.area.replace("전용 ", ""), l: "전용면적" },
                   { v: unit.supply.replace("공급 ", ""), l: "공급면적" },
@@ -191,7 +191,7 @@ export default function UnitGuide() {
                 ].map((b) => (
                   <div key={b.l}>
                     <p className="text-white font-black text-sm md:text-base">{b.v}</p>
-                    <p className="text-[#c9963c] text-[11px] mt-0.5 tracking-wide">{b.l}</p>
+                    <p className="text-[#ffffff] text-[11px] mt-0.5 tracking-wide">{b.l}</p>
                   </div>
                 ))}
               </div>
@@ -202,8 +202,8 @@ export default function UnitGuide() {
           <AnimatedSection animation="fade-right" delay={100} key={`spec-${active}`}>
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-1">
-                <h3 className="text-[#0d1f15] text-2xl font-black">{unit.label}</h3>
-                <span className="bg-[#c9963c]/15 text-[#c9963c] text-xs font-bold px-2.5 py-1 tracking-wide">
+                <h3 className="text-[#901649] text-2xl font-black">{unit.label}</h3>
+                <span className="bg-[#ffffff]/15 text-[#ffffff] text-xs font-bold px-2.5 py-1 tracking-wide">
                   {unit.type}
                 </span>
               </div>
@@ -213,7 +213,7 @@ export default function UnitGuide() {
             {/* 특화 포인트 */}
             <div className="flex flex-wrap gap-2 mb-7">
               {unit.features.map((f) => (
-                <span key={f} className="bg-[#c9963c]/10 text-[#a87830] border border-[#c9963c]/25 text-xs font-semibold px-3 py-1.5">
+                <span key={f} className="bg-[#ffffff]/10 text-[#d0d0d0] border border-[#ffffff]/25 text-xs font-semibold px-3 py-1.5">
                   ✓ {f}
                 </span>
               ))}
@@ -222,25 +222,13 @@ export default function UnitGuide() {
             {/* 실 면적 */}
             <div className="border-t border-b border-gray-200 divide-y divide-gray-100 mb-7">
               {unit.rooms_detail.map((r) => (
-                <div key={r.name} className="flex items-center justify-between py-3 px-1 hover:bg-[#c9963c]/5 transition-colors">
+                <div key={r.name} className="flex items-center justify-between py-3 px-1 hover:bg-[#ffffff]/5 transition-colors">
                   <span className="text-gray-600 text-sm">{r.name}</span>
-                  <span className="text-[#0d1f15] text-sm font-bold">{r.size}</span>
+                  <span className="text-[#901649] text-sm font-bold">{r.size}</span>
                 </div>
               ))}
             </div>
 
-            {/* 안내 버튼 */}
-            <div className="flex gap-3">
-              <a
-                href="#contact"
-                className="flex-1 text-center bg-[#0d1f15] hover:bg-[#1e4d2b] text-white py-4 text-sm font-bold tracking-wide transition-colors btn-shine"
-              >
-                상담 신청하기
-              </a>
-              <button type="button" className="flex-1 border-2 border-[#0d1f15] text-[#0d1f15] hover:bg-[#0d1f15] hover:text-white py-4 text-sm font-bold tracking-wide transition-all">
-                모델하우스 예약
-              </button>
-            </div>
           </AnimatedSection>
         </div>
       </div>
