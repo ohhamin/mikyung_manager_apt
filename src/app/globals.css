@@ -10,6 +10,7 @@ html {
 
 body {
   font-family: var(--font-pretendard), "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

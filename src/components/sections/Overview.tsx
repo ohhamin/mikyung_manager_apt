@@ -82,7 +82,7 @@ export default function Overview() {
               {["사상공원 특례사업", "전세대 남향 위주", "친환경 인증", "스마트홈 적용"].map((badge) => (
                 <span
                   key={badge}
-                  className="border border-[#ffffff]/50 text-[#ffffff] text-[11px] font-semibold px-3 py-1.5 tracking-wide"
+                  className="border border-[#901649] text-[#901649] text-[11px] font-semibold px-3 py-1.5 tracking-wide"
                 >
                   ✓ {badge}
                 </span>

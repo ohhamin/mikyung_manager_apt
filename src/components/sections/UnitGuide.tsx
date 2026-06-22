@@ -107,6 +107,15 @@ export default function UnitGuide() {
           description="전 세대 전용 84㎡, 4가지 타입으로 다양한 라이프스타일을 충족시킵니다."
         />
 
+        {/* 특화 태그 */}
+        <div className="flex flex-wrap gap-2 mb-10 -mt-4">
+          {unit.features.map((f) => (
+            <span key={f} className="border border-[#901649] text-[#901649] text-xs font-semibold px-3 py-1.5 tracking-wide">
+              ✓ {f}
+            </span>
+          ))}
+        </div>
+
         {/* 세대 분포 바 */}
         <AnimatedSection animation="fade-up" className="mb-10 md:mb-12">
           <div className="bg-white border border-gray-200 p-5 md:p-7 flex flex-col gap-4">
@@ -120,7 +129,7 @@ export default function UnitGuide() {
                   className="transition-all h-full"
                   style={{
                     flex: parseFloat(u.ratio),
-                    background: active === u.id ? "#ffffff" : "#901649",
+                    background: "#901649",
                     opacity: active === u.id ? 1 : 0.35,
                   }}
                 />
@@ -132,10 +141,10 @@ export default function UnitGuide() {
                   key={u.id}
                   onClick={() => setActive(u.id)}
                   className={`flex items-center gap-2 text-xs transition-colors ${
-                    active === u.id ? "text-[#ffffff] font-bold" : "text-gray-500 hover:text-[#901649]"
+                    active === u.id ? "text-[#901649] font-bold" : "text-gray-500 hover:text-[#901649]"
                   }`}
                 >
-                  <span className={`w-2.5 h-2.5 inline-block ${active === u.id ? "bg-[#ffffff]" : "bg-[#901649]/30"}`} />
+                  <span className={`w-2.5 h-2.5 inline-block ${active === u.id ? "bg-[#901649]" : "bg-[#901649]/30"}`} />
                   {u.label} ({u.ratio})
                 </button>
               ))}
@@ -157,9 +166,6 @@ export default function UnitGuide() {
                 }`}
               >
                 {u.label}
-                <span className={`block text-[10px] mt-0.5 font-normal ${active === u.id ? "text-[#ffffff]" : "text-gray-400"}`}>
-                  {u.type}
-                </span>
               </button>
             ))}
           </div>
@@ -201,22 +207,8 @@ export default function UnitGuide() {
           {/* 스펙 상세 */}
           <AnimatedSection animation="fade-right" delay={100} key={`spec-${active}`}>
             <div className="mb-6">
-              <div className="flex items-center gap-3 mb-1">
-                <h3 className="text-[#901649] text-2xl font-black">{unit.label}</h3>
-                <span className="bg-[#ffffff]/15 text-[#ffffff] text-xs font-bold px-2.5 py-1 tracking-wide">
-                  {unit.type}
-                </span>
-              </div>
+              <h3 className="text-[#901649] text-2xl font-black mb-1">{unit.label}</h3>
               <p className="text-gray-500 text-sm">{unit.rooms}</p>
-            </div>
-
-            {/* 특화 포인트 */}
-            <div className="flex flex-wrap gap-2 mb-7">
-              {unit.features.map((f) => (
-                <span key={f} className="bg-[#ffffff]/10 text-[#d0d0d0] border border-[#ffffff]/25 text-xs font-semibold px-3 py-1.5">
-                  ✓ {f}
-                </span>
-              ))}
             </div>
 
             {/* 실 면적 */}

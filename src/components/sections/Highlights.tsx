@@ -65,6 +65,7 @@ export default function Highlights() {
           <AnimatedSection
             key={item.category}
             animation={i % 2 === 0 ? "fade-right" : "fade-left"}
+            duration={1600}
             threshold={0.05}
           >
             <div

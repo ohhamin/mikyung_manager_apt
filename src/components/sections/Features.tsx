@@ -96,7 +96,7 @@ export default function Features() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/20 to-transparent" />
             <div className="absolute inset-0 flex items-center">
               <div className="max-w-7xl mx-auto px-8 md:px-12">
-                <p className="text-[#ffffff] text-xs tracking-[0.4em] font-bold uppercase mb-2">Special Features</p>
+                <p className="text-gray-400 text-xs tracking-[0.4em] font-bold uppercase mb-2">Special Features</p>
                 <p className="text-[#901649] text-2xl md:text-3xl font-black leading-tight tracking-tight">
                   한 차원 높은<br />주거 경험
                 </p>
@@ -111,14 +111,14 @@ export default function Features() {
               <div className="hover-card group bg-[#f5f3ef] p-8 border border-transparent hover:border-[#ffffff]/20 h-full">
                 {/* 번호 + 아이콘 행 */}
                 <div className="flex items-start justify-between mb-5">
-                  <div className="text-[#ffffff] group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-gray-400 group-hover:scale-110 transition-transform duration-300">
                     {f.icon}
                   </div>
                   <span className="text-[#901649]/10 text-4xl font-black group-hover:text-[#ffffff]/15 transition-colors">
                     {f.num}
                   </span>
                 </div>
-                <p className="text-[10px] text-[#ffffff] tracking-[0.35em] font-bold uppercase mb-1.5">
+                <p className="text-[10px] text-gray-400 tracking-[0.35em] font-bold uppercase mb-1.5">
                   {f.subtitle}
                 </p>
                 <h3 className="text-[#901649] text-lg font-black mb-3 tracking-tight">{f.title}</h3>

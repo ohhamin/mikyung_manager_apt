@@ -97,7 +97,6 @@ export default function Location() {
                   className="object-cover object-center"
                   sizes="100vw"
                 />
-                <div className="absolute inset-0 bg-[#901649]/20" />
               </div>
             ))}
 
@@ -122,53 +121,26 @@ export default function Location() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
-
-            {/* 인디케이터 */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-              {CAROUSEL_IMAGES.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setCurrent(i)}
-                  aria-label={`${i + 1}번 이미지`}
-                  className="transition-all duration-300"
-                >
-                  <span
-                    className={`block rounded-full transition-all duration-300 ${
-                      i === current ? "w-6 h-2 bg-[#ffffff]" : "w-2 h-2 bg-white/50 hover:bg-white/80"
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
-
-            {/* 위치 마커 */}
-            <div className="absolute top-4 left-4 z-10 bg-[#901649] text-white text-xs px-3 py-2 font-bold tracking-wide flex items-center gap-2">
-              <span className="text-[#ffffff]">📍</span>
-              더파크 비스타 동원
-            </div>
-            {/* 핵심 라벨 */}
-            <div className="absolute bottom-4 right-4 z-10 flex gap-2 flex-wrap justify-end">
-              {["팍세권", "감전역 도보", "사상역 인접"].map((tag) => (
-                <span key={tag} className="bg-[#ffffff] text-white text-[11px] font-bold px-3 py-1 tracking-wide">
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
 
-          {/* 썸네일 */}
-          <div className="flex gap-2 mt-2">
-            {CAROUSEL_IMAGES.map((img, i) => (
+          {/* 인디케이터 - 캐러셀 아래 */}
+          <div className="flex justify-center gap-2 mt-4">
+            {CAROUSEL_IMAGES.map((_, i) => (
               <button
-                key={img.src}
+                key={i}
                 type="button"
                 onClick={() => setCurrent(i)}
-                className={`relative flex-1 aspect-[16/6] overflow-hidden transition-all duration-300 ${
-                  i === current ? "ring-2 ring-[#ffffff]" : "opacity-55 hover:opacity-80"
-                }`}
+                aria-label={`${i + 1}번 이미지`}
+                className="transition-all duration-300"
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover object-center" sizes="33vw" />
+                <span
+                  className="block rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? "24px" : "10px",
+                    height: "10px",
+                    background: i === current ? "#901649" : "#d1d5db",
+                  }}
+                />
               </button>
             ))}
           </div>
@@ -176,7 +148,7 @@ export default function Location() {
 
         {/* 교통 접근성 */}
         <AnimatedSection animation="fade-up" delay={50}>
-          <h3 className="text-[#901649] text-lg font-black mb-5 tracking-wide border-l-4 border-[#ffffff] pl-4">
+          <h3 className="text-[#901649] text-lg font-black mb-5 tracking-wide border-l-4 border-[#901649] pl-4">
             교통 접근성
           </h3>
         </AnimatedSection>
@@ -192,7 +164,7 @@ export default function Location() {
                   {t.items.map((item) => (
                     <div key={item.name} className="flex justify-between items-baseline gap-2">
                       <span className="text-gray-600 text-sm">{item.name}</span>
-                      <span className="text-[#ffffff] text-sm font-bold shrink-0">{item.time}</span>
+                      <span className="text-[#901649] text-sm font-bold shrink-0">{item.time}</span>
                     </div>
                   ))}
                 </div>
@@ -203,7 +175,7 @@ export default function Location() {
 
         {/* 주변 인프라 */}
         <AnimatedSection animation="fade-up" delay={50}>
-          <h3 className="text-[#901649] text-lg font-black mb-5 tracking-wide border-l-4 border-[#ffffff] pl-4">
+          <h3 className="text-[#901649] text-lg font-black mb-5 tracking-wide border-l-4 border-[#901649] pl-4">
             주변 생활 인프라
           </h3>
         </AnimatedSection>
