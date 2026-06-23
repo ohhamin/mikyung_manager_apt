@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
   try {
     await transporter.sendMail({
       from: '"더파크 비스타 동원" <ohm55545@gmail.com>',
-      to: "ohm55545@naver.com",
+      to: "ohm55545@naver.com, ohfam5@naver.com",
       subject: "더파크 비스타 동원 예약 신청",
       text: body,
     });
